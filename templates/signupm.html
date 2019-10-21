@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 style="font-size: 20px; font-weight: bold; color: #E66225;">
+	________________________________________________________________________________________________________________________________
+</h1>
+<br>
+<div>
+	<div>
+		<div>
+			<div>
+				<form>
+					<input type="Number" value="" name="Employee ID" placeholder="Employee ID"
+						style="float: left;width: 200px; border-radius: 5px;padding: 7px;  margin-left: 420px; background-color: #f2af80;"
+						required>
+					<input type="submit" value="Verify"
+						style="float: left;width: 200px; border-radius: 5px; padding: 7px;  margin-left: 40px; background-color: #32A800;">
+				</form>
+			</div>
+		</div>
+		<h1 style="font-size: 20px; font-weight: bold; color: #E66225;">
+			________________________________________________________________________________________________________________________________
+		</h1>
+		<h6 style="color:red;font-size:2em;text-align: center;">{{error}}</h6>
+
+		<div>
+			<div style="float: left; width: 50%;">
+				<form action="{% url 'signupm' %}" method="POST">
+					<input type="text" value="" placeholder="Username" name="Username"
+						style="width: 400px; border-radius: 5px; padding: 7px;margin-top: 15px; margin-left: 220px; background-color: #f2af80;"
+						required>
+					<input type="password" value="" name="Confirm Password" placeholder="Confirm Password"
+						style="width: 400px; border-radius: 5px; padding: 7px; margin-top: 15px; margin-left: 220px; background-color: #f2af80;"
+						required>
+					<input type="password" value="" name="Password" placeholder="Password"
+						style="width: 400px; border-radius: 5px; padding: 7px; margin-top: 15px; margin-left: 220px; background-color: #f2af80;"
+						required>
+					<input type="email" value="" placeholder="E-mail" name="E-mail"
+						style="width: 400px; border-radius: 5px; padding: 7px; margin-top: 15px; margin-left: 220px; background-color: #f2af80;"
+						required>
+					<input type="text" value="" placeholder="First Name" name="First Name"
+						style="width: 400px; border-radius: 5px; padding: 7px; margin-top: 15px; margin-left: 220px; background-color: #f2af80;"
+						required>
+					<input type="text" value="" placeholder="Last Name" name="Last Name"
+						style="width: 400px; border-radius: 5px; padding: 7px; margin-top: 15px; margin-left: 220px; background-color: #f2af80;"
+						required>
+					<input type="text" value="" placeholder="Designation" name="Designation"
+						style="width: 400px; border-radius: 5px; padding: 7px; margin-top: 15px; margin-left: 220px; background-color: #f2af80;"
+						required>
+					<input type="number" value="" placeholder="Adhar Card Number" name="Adhar Card Number"
+						style="width: 400px; border-radius: 5px; padding: 7px; margin-top: 15px; margin-left: 220px; background-color: #f2af80;"
+						required>
+					<input type="text" value="" placeholder="Teaching Experience" name="Teaching Experience"
+						style="width: 400px; border-radius: 5px; padding: 7px; margin-top: 15px; margin-left: 220px; background-color: #f2af80;"
+						required>
+			</div>
+			<div style="float: left; width: 50%;  ">
+				<input type="text" value="" name="Father's Name" placeholder="Father's Name"
+					style="width: 400px; border-radius: 5px; padding: 7px; margin-top: 15px; margin-left: 20px; background-color: #f2af80;"
+					required>
+
+				<input type="text" name="Qualification" placeholder="Qualification"
+					style="width: 400px; border-radius: 5px; padding: 7px; margin-top: 15px;  margin-left: 20px; background-color: #f2af80;"
+					required>
+
+				<select name="Department" placeholder="Department"
+					style="width: 400px; border-radius: 5px; padding: 7px; margin-top: 15px;  margin-left: 20px; background-color: #f2af80;"
+					required>
+					<option value="CSE" disabled hidden selected>Department</option>
+					<option value="CSE">CSE</option>
+					<option value="ECE">ECE</option>
+					<option value="EE">EE</option>
+					<option value="ME">ME</option>
+					<option value="CE">CE</option>
+				</select>
+				<input type="Number" value="" name="Contact Number" placeholder="Contact Number"
+					style="width: 400px; border-radius: 5px; padding: 7px; margin-top: 15px;  margin-left: 20px;background-color: #f2af80;"
+					required>
+				<input type="text" value="" placeholder="Industrial Experience" name="Industrial Experience"
+					style="width: 400px; border-radius: 5px; padding: 7px; margin-top: 15px; margin-left: 20px; background-color: #f2af80;"
+					required>
+				<input type="text" value="" placeholder="Address" name="Address"
+					style="width: 400px; border-radius: 5px; padding: 7px; margin-top: 15px; margin-left: 20px; background-color: #f2af80;"
+					required>
+				{% csrf_token %}
+			</div>
+		</div>
+
+
+
+	</div>
+
+</div>
+
+<h1 style="font-size: 20px; font-weight: bold; color: #E66225;">
+	________________________________________________________________________________________________________________________________
+</h1>
+<div>
+	<input type="submit" value="Submit"
+		style="width: 840px; margin-left: 220px; border-radius: 5px; padding: 7px; margin-top: 15px; background-color: #32A800; ">
+	</form>
+</div>
+{% endblock %}

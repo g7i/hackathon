@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% block content %}
+{% load staticfiles %}
+<br>
+<br>
+<div>
+	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+		<ul class="carousel-indicators">
+			<li data-target="#myCarousel" data-slide-to="0" class="active">
+			</li>
+			<li data-target="#myCarousel" data-slide-to="1">
+			</li>
+			<li data-target="#myCarousel" data-slide-to="2">
+			</li>
+		</ul>
+		<div class="carousel-inner">
+			<div class="item active">
+				<img src="{% static 'images/Image1.jpg' %}" alt="image1" style="width:100%; height: 500px;">
+			</div>
+			<div class="item">
+				<img src="{% static 'images/Image2.jpg' %}" alt="image2" style="width:100%; height: 500px;">
+			</div>
+			<div class="item active">
+				<img src="{% static 'images/Image3.jpg' %}" alt="image3" style="width:100%; height: 500px;">
+			</div>
+			<div class="item">
+				<img src="{% static 'images/Image4.jpg' %}" alt="image4" style="width:100%; height: 500px;">
+			</div>
+			<div class="item active">
+				<img src="{% static 'images/Image5.jpg' %}" alt="image5" style="width:100%; height: 500px;">
+			</div>
+			<div class="item">
+				<img src="{% static 'images/Image6.jpg' %}" alt="image6" style="width:100%; height: 500px;">
+			</div>
+			<div class="item active">
+				<img src="{% static 'images/Image7.jpg' %}" alt="image7" style="width:100%; height: 500px;">
+			</div>
+			<div class="item">
+				<img src="{% static 'images/Image8.jpg' %}" alt="image8" style="width:100%; height: 500px;">
+			</div>
+			<div class="item active">
+				<img src="{% static 'images/Image9.jpg' %}" alt="image9" style="width:100%; height: 500px;">
+			</div>
+			<div class="item">
+				<img src="{% static 'images/Image10.jpg' %}" alt="image10" style="width:100%; height: 500px;">
+			</div>
+		</div>
+		<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left">
+			</span>
+		</a>
+		<a class="right carousel-control" href="#myCarousel" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right">
+			</span>
+		</a>
+	</div>
+</div>
+<div>
+	<h1 style="font-size: 20px; font-weight: bold; color: #E66225;">
+		________________________________________________________________________________________________________________________________
+	</h1>
+	<div style="margin-top: 50px;">
+		<h1
+			style="font-size: 30px; font-weight: bold; color: #69B1DD; float: left; margin-left: 79px; margin-top: 42px;">
+			Organizers :
+		</h1>
+	</div>
+	<div style="float: left; width: 12%;">
+		<img src="{% static 'images/trc.png' %}" style="height: 135px; width: 150px; margin-left: 25px;">
+	</div>
+	<div style="float: left; width: 12%;">
+		<img src="{% static 'images/cse.png' %}" style="height: 100px; width: 120px; margin-left: 45px;">
+	</div>
+	<div style="float: left; width: 12%;">
+		<img src="{% static 'images/ece.png' %}" style="height: 100px; width: 120px; margin-left: 45px;">
+	</div>
+	<div style="float: left; width: 12%;">
+		<img src="{% static 'images/ee.jpg' %}" style="height: 100px; width: 120px; margin-left: 45px;">
+	</div>
+	<div style="float: left; width: 12%;">
+		<img src="{% static 'images/mmee.png' %}" style="height: 100px; width: 120px; margin-left: 45px;">
+	</div>
+	<div style="float: left; width: 12%;">
+		<img src="{% static 'images/civil.png' %}" style="height: 100px; width: 120px; margin-left: 45px;">
+	</div>
+	<h1 style="font-size: 20px; font-weight: bold; color: #E66225;">
+		________________________________________________________________________________________________________________________________
+	</h1>
+	<div style="margin-top: 22px;">
+		<iframe width="335" height="205" src="https://www.youtube.com/embed/9wwLY9DFeQE" frameborder="0"
+			allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+			style="float: left;margin-top: 5px; margin-left: 32px;"></iframe>
+
+		<ul style="float: left; list-style: none;">
+			<li style="font-weight: bold; font-size: 20px; float: left;">
+				What is MIH 2019-20 ?
+			</li>
+			<br>
+			<br>
+			<li style="font-size: 14px;">
+				1. Open Innovation model competition at intra college level an initiative by all departments of MITRC.
+			</li>
+			<li style="font-size: 14px;margin-top: 5px;">
+				2. An approach for recognizing the hidden talent to participate in 4th edition of highly successful
+				Smart India Hackathon initiative.
+			</li>
+			<li style="font-size: 14px;margin-top: 5px;">
+				3. Involves approx. 200+ students with 150+ ideas from all students of different branch against 30+
+				problem statements.
+			</li>
+			<li style="font-size: 14px;margin-top: 5px;">
+				4. Students of college compete to solve problems of society, industries to give solutions.
+			</li>
+			<li style="font-size: 14px;margin-top: 5px;">
+				5. Harness expertise of students from various departments.
+			</li>
+			<li style="font-size: 14px;margin-top: 5px;">
+				6. Opportunity to globalize your potential nationally.
+			</li>
+			<li style="font-size: 14px;margin-top: 5px;">
+				7. It's not about Idea, It's about making Idea Happen.
+			</li>
+		</ul>
+		</h1>
+	</div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<div>
+
+</div>
+<br>
+<br>
+<br>
+{% endblock %}

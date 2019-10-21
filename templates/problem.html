@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 style="font-size: 20px; font-weight: bold; color: #E66225;">
+    ________________________________________________________________________________________________________________________________
+</h1>
+<h1 style="font-weight: bold; font-size: 40px; color: #6BB2DE; text-align: center;">
+    PROBLEM SUBMISSION
+</h1>
+<div>
+    <div style="float: left; width: 50%;">
+        <form action="{% url 'problem' %}" method="POST">
+            <input type="text" value="" placeholder="Problem Title" name="title"
+                style="width: 400px; border-radius: 5px; padding: 7px;margin-top: 15px; margin-left: 220px; background-color: #f2af80;">
+            <input type="number" value="" placeholder="Problem Code" name="code"
+                style="width: 400px; border-radius: 5px; padding: 7px;margin-top: 15px; margin-left: 220px; background-color: #f2af80;">
+            <input type="text" value="" placeholder="Organisation" name="Organisation"
+                style="width: 400px; border-radius: 5px; padding: 7px;margin-top: 15px; margin-left: 220px; background-color: #f2af80;">
+            <select name="complexity" placeholder=""
+                style="width: 400px; border-radius: 5px; padding: 7px; margin-top: 15px;  margin-left: 220px; background-color: #f2af80;"
+                required>
+                <option value="Simple" disabled hidden selected>Problem Complexity</option>
+                <option value="Simple">Simple</option>
+                <option value="Medium">Medium</option>
+                <option value="Complex">Complex</option>
+            </select>
+            <select name="theme" placeholder=""
+                style="width: 400px; border-radius: 5px; padding: 7px; margin-top: 15px;  margin-left: 220px; background-color: #f2af80;">
+                <option value="Smart Communication" disabled hidden selected>Problem Theme</option>
+                <option value="Smart Communication">Smart Communication</option>
+                <option value="Healthcare & Biomedical devices">Healthcare & Biomedical devices</option>
+                <option value="Agriculture & Rural Development">Agriculture & Rural Development</option>
+                <option value="Smart Vehicles">Smart Vehicles</option>
+                <option value="Food Processing">Food Processing</option>
+                <option value="Robotics & Drones">Robotics & Drones</option>
+                <option value="Waste Management">Waste Management</option>
+                <option value="Clean Water">Clean Water</option>
+                <option value="Renewable Energy">Renewable Energy</option>
+            </select>
+    </div>
+    <div style="float: left; width: 50%;  ">
+        <select name="cat" placeholder=""
+            style="width: 400px; border-radius: 5px; padding: 7px; margin-top: 15px;  margin-left: 20px; background-color: #f2af80;">
+            <option value="Software" disabled hidden selected>Problem Category</option>
+            <option value="Software">Software</option>
+            <option value="Hardware">Hardware</option>
+        </select>
+        <textarea type="text" value="" name="desc" placeholder="Problem Description"
+            style="width: 400px; border-radius: 5px; padding: 7px; margin-top: 15px; margin-left: 20px; background-color: #f2af80; height: 150px;"></textarea>
+
+    </div>
+</div>
+
+
+{% csrf_token %}
+</div>
+
+</div>
+
+<h1 style="text-align:center; font-size: 20px; font-weight: bold; color: #E66225;">
+    ________________________________________________________________________________________________________________________________
+</h1>
+<div>
+
+    <input type="submit" value="Submit"
+        style="width: 840px;display:block; margin:auto; border-radius: 5px; padding: 7px; margin-top: 15px; background-color: #32A800; ">
+    </form>
+</div>
+<div>
+
+
+    {% endblock %}

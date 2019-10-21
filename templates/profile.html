@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% block content %}
+{% load staticfiles %}
+<style>
+	label {
+		margin-left: 220px;
+	}
+
+	.right {
+		margin-left: 20px !important;
+	}
+
+	table {
+		font-family: arial, sans-serif;
+		border-collapse: collapse;
+		width: 90%;
+
+	}
+
+	td,
+	th {
+		border: 1px solid #dddddd;
+		text-align: left;
+		padding: 8px;
+	}
+
+	tr:nth-child(even) {
+		background-color: #dddddd;
+	}
+</style>
+<h1 style="font-size: 20px; font-weight: bold; color: #E66225;">
+	________________________________________________________________________________________________________________________________
+</h1>
+<br>
+<h6 style="color:red;font-size:2em;text-align: center;">{{error}}</h6>
+
+<div>
+	<div style="float: left; width: 60%; ">
+		<form action="{% url 'signups' %}" method="post" enctype="multipart/form-data">
+			<label for="Username">
+				Username</label><br>
+			<input type="text" value="{{user.username}}" placeholder="Username" name="Username"
+				style="width: 400px; border-radius: 5px; padding: 7px; margin-left: 220px; background-color: #f2af80;"
+				disabled>
+			<br><br> <label for="E-mail">
+				E-mail</label><br>
+			<input type="email" value="{{user.email}}" placeholder="E-mail" name="E-mail"
+				style="width: 400px; border-radius: 5px; padding: 7px;  margin-left: 220px; background-color: #f2af80;"
+				disabled>
+			<br> <br><label for="First Name">
+				First Name</label><br>
+			<input type="text" value="{{user.first_name}}" placeholder="First Name" name="First Name"
+				style="width: 400px; border-radius: 5px; padding: 7px;  margin-left: 220px; background-color: #f2af80;"
+				disabled>
+			<br><br><label for="Last Name">
+				Last Name</label><br>
+			<input type="text" value="{{user.last_name}}" placeholder="Last Name" name="Last Name"
+				style="width: 400px; border-radius: 5px; padding: 7px;  margin-left: 220px; background-color: #f2af80;"
+				disabled>
+			<br><br><label for="Father's Name">
+				Father's Name</label><br>
+			<input type="text" value="{{stu.father_name}}" name="Father's Name" placeholder="Father's Name"
+				style="width: 400px; border-radius: 5px; padding: 7px;  margin-left: 220px; background-color: #f2af80;"
+				disabled>
+			<br><br><label for="Aadhar No.">
+				Aadhar Number</label><br>
+			<input type="text" value="{{stu.aadhar}}" name="Father's Name" placeholder="Father's Name"
+				style="width: 400px; border-radius: 5px; padding: 7px;  margin-left: 220px; background-color: #f2af80;"
+				disabled>
+
+	</div>
+	<div style="float: left; width: 40%;  ">
+
+		<label for="Collage ID" class="right">
+			Collage ID</label><br>
+		<input type="Number" value="{{stu.college_id}}" name="Collage ID" placeholder="Collage ID"
+			style="width: 400px; border-radius: 5px; padding: 7px;   margin-left: 20px; background-color: #f2af80;"
+			disabled>
+		<br><br><label for="Semester" class="right">
+			Semester</label><br>
+		<input value="{{stu.semester}}" name="Semester" placeholder="Semester"
+			style="width: 400px; border-radius: 5px; padding: 7px;   margin-left: 20px; background-color: #f2af80;"
+			disabled>
+
+		<br><br><label for="Branch" class="right">
+			Branch</label><br>
+		<input name="Branch" value="{{stu.branch}}" placeholder="Branch"
+			style="width: 400px; border-radius: 5px; padding: 7px;   margin-left: 20px; background-color: #f2af80;"
+			disabled>
+
+		<br><br><label for="Contact Number" class="right">
+			Contact Number</label><br>
+		<input type="Number" value="{{stu.contact_number}}" name="Contact Number" placeholder="Contact Number"
+			style="width: 400px; border-radius: 5px; padding: 7px;   margin-left: 20px;background-color: #f2af80;"
+			disabled>
+		<br><br><label for="myFile" class="right">
+			Consent Letter</label><br>
+		<a href="{{stu.letter.url}}">
+			<input type="button" name="myFile"
+				style="width: 400px; border-radius: 5px; padding: 7px;   margin-left: 20px; background-color: #f2af80;"
+				value="Click to download file."></a>
+	</div>
+</div>
+
+{% csrf_token %}
+
+</div>
+
+</div>
+
+<h1 style="font-size: 20px; font-weight: bold;text-align: center; color: #E66225;">
+	________________________________________________________________________________________________________________________________
+</h1>
+<!-- <div style="text-align: center;">
+								<input type="button" value="EDIT" style="width: 440px;  border-radius: 5px; padding: 7px; margin-top: 15px; background-color: #32A800; ">
+							</a>				</form>
+			</div> -->
+<div style="float:left;width: 90%;">
+	<p style="font-weight: bold; font-size: 40px; text-align: center;">
+		Submitted Ideas
+	</p>
+	<table style="margin-left: 250px; margin-top: 30px;">
+		<tr>
+			<th>Title</th>
+			<th>Problem Code</th>
+			<th>Description</th>
+			<th>Document</th>
+
+
+		</tr>
+		</tr>
+		{% for idea in ideas %}
+
+		<tr>
+			<td>{{idea.title}}</td>
+			<td>{{idea.problem.code}}</td>
+			<td>{{idea.desc}}</td>
+			<td>
+				<a href="{{idea.doc.url}}">Download</a>
+			</td>
+
+
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+<div>
+
+	{% endblock %}

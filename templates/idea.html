@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 style="font-size: 20px; font-weight: bold; color: #E66225;">
+	________________________________________________________________________________________________________________________________
+</h1>
+<h1 style="font-weight: bold; font-size: 40px; color: #6BB2DE; text-align: center;">
+	IDEA SUBMISSION
+</h1>
+<div>
+	<div style="float: left; width: 50%;">
+		<form action="{% url 'idea' prob.id %}" method="POST" enctype="multipart/form-data">
+			<input type="text" value="" placeholder="Idea Title" name="title"
+				style="width: 400px; border-radius: 5px; padding: 7px;margin-top: 15px; margin-left: 220px; background-color: #f2af80;">
+
+				<input type="hidden" value={{prob.id}} placeholder="Idea Title" name="pr"
+				style="width: 400px; border-radius: 5px; padding: 7px;margin-top: 15px; margin-left: 220px; background-color: #f2af80;">
+
+
+				<input type="file" name="doc"
+				style="width: 400px; border-radius: 5px; padding: 7px; margin-top: 15px;  margin-left: 220px; background-color: #f2af80;">
+
+	</div>
+	<div style="float: left; width: 50%;  ">
+
+		<textarea type="text" value="" name="desc" placeholder="Problem Description"
+			style="width: 400px; border-radius: 5px; padding: 7px; margin-top: 15px; margin-left: 20px; background-color: #f2af80; height: 150px;"></textarea>
+
+	</div>
+</div>
+
+
+{% csrf_token %}
+</div>
+
+</div>
+
+<h1 style="text-align:center; font-size: 20px; font-weight: bold; color: #E66225;">
+	________________________________________________________________________________________________________________________________
+</h1>
+<div>
+
+	<input type="submit" value="Submit"
+		style="width: 840px;display:block; margin:auto; border-radius: 5px; padding: 7px; margin-top: 15px; background-color: #32A800; ">
+	</form>
+</div>
+<div>
+
+
+	{% endblock %}

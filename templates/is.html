@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 style="font-size: 20px; font-weight: bold; color: #E66225;">
+	________________________________________________________________________________________________________________________________
+</h1>
+<h6 style="color:red;font-size:2em;text-align: center;">{{error}}</h6>
+<a href="{% url 'prdesc' %}">
+	<h6 style="color:blue;font-size:2em;text-align: center;">Problem List</h6>
+</a>
+
+{% endblock content %}
