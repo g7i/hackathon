@@ -217,41 +217,50 @@
 						</div>
 						<div style="float: left;">
 							<form action="{% url 'home' %}" class="form-container" method="POST">
-								<div>
-									<input type="radio" placeholder="Enter Email" name="email" required value="signupp">
+								<a href="{% url 'signupp' %}">
+									<div>
+										<input type="radio" placeholder="Enter Email" name="email" required
+											value="signupp">
+										<label for="psw">
+											<b style="font-size: 17px;">
+												Problem Statement Creater
+											</b>
+										</label>
+									</div>
+								</a>
+								<a href="{% url 'signupm' %}">
+									<div>
+										<input type="radio" placeholder="Enter Email" name="email" required
+											value="signupm">
+										<label for="psw">
+											<b style="font-size: 17px;">
+												Design Mentors
+											</b>
+										</label>
+
+									</div>
+								</a>
+								<a href="{% url 'signupj' %}">
+									<div>
+										<input type="radio" placeholder="Enter Email" name="email" required
+											value="signupj">
+										<label for="psw">
+											<b style="font-size: 17px;">
+												Evaluator/Judges
+											</b>
+										</label>
+
+									</div>
+								</a>
+								<a href="{% url 'signups' %}">
+
+									<input type="radio" placeholder="Enter Email" name="email" required value="signups">
 									<label for="psw">
 										<b style="font-size: 17px;">
-											Problem Statement Creater
+											Student
 										</b>
 									</label>
-								</div>
-
-								<div>
-									<input type="radio" placeholder="Enter Email" name="email" required value="signupm">
-									<label for="psw">
-										<b style="font-size: 17px;">
-											Design Mentors
-										</b>
-									</label>
-
-								</div>
-								<div>
-									<input type="radio" placeholder="Enter Email" name="email" required value="signupj">
-									<label for="psw">
-										<b style="font-size: 17px;">
-											Evaluator/Judges
-										</b>
-									</label>
-
-								</div>
-
-
-								<input type="radio" placeholder="Enter Email" name="email" required value="signups">
-								<label for="psw">
-									<b style="font-size: 17px;">
-										Student
-									</b>
-								</label>
+								</a>
 						</div>
 					</div>
 					<h1 style="text-align:center;font-size: 20px; font-weight: bold; color: #E66225; margin-left: 3px;">
