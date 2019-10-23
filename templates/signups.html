@@ -18,7 +18,10 @@
 				},
 				dataType: 'json',
 				success: function (response) {
-					$('#ad').val(aadhar)
+					if (response['Status'] == 'Y') {
+						$('#ad').val(aadhar)
+						$('#mail').val(response['email'])
+					}
 					alert(response['Message']);
 				},
 				error: function (rs, e) {
@@ -38,9 +41,9 @@
 		<div>
 			<div>
 				<form>
-					<input type="Number" value="" name="Adhar Card Number" placeholder="Adhar Card Number"
+					<input type="text" value="" name="Adhar Card Number" placeholder="Adhar Card Number"
 						style="float: left;width: 200px; border-radius: 5px;padding: 7px;  margin-left: 420px; background-color: #f2af80;"
-						id="aadhar" required>
+						id="aadhar" maxlength="12" pattern="[0-9]{12}" required>
 					<input type="submit" value="Verify"
 						style="float: left;width: 200px; border-radius: 5px; padding: 7px;  margin-left: 40px; background-color: #32A800;margin-right:100px;"
 						id="verify">
@@ -54,7 +57,7 @@
 		<h6 style="color:red;font-size:2em;text-align: center;">{{error}}</h6>
 
 		<div>
-			<div style="float: left; width: 60%; background-color: ">
+			<div style="float: left; width: 60%;">
 				<form action="{% url 'signups' %}" method="post" enctype="multipart/form-data">
 					<input type="text" value="" placeholder="Username" name="Username"
 						style="width: 400px; border-radius: 5px; padding: 7px;margin-top: 15px; margin-left: 220px; background-color: #f2af80;"
@@ -66,9 +69,9 @@
 					<input type="password" value="" name="Confirm Password" placeholder="Confirm Password"
 						style="width: 400px; border-radius: 5px; padding: 7px; margin-top: 15px; margin-left: 220px; background-color: #f2af80;"
 						required>
-					<input type="email" value="" placeholder="E-mail" name="E-mail"
+					<input type="email" id="mail" placeholder="E-mail" name="E-mail"
 						style="width: 400px; border-radius: 5px; padding: 7px; margin-top: 15px; margin-left: 220px; background-color: #f2af80;"
-						required>
+						readonly required>
 					<input type="text" value="" placeholder="First Name" name="First Name"
 						style="width: 400px; border-radius: 5px; padding: 7px; margin-top: 15px; margin-left: 220px; background-color: #f2af80;"
 						required>
@@ -103,9 +106,9 @@
 					<option value="ME">ME</option>
 					<option value="CE">CE</option>
 				</select>
-				<input type="Number" value="" name="Contact Number" placeholder="Contact Number"
+				<input type="text" name="Contact Number" placeholder="Contact Number"
 					style="width: 400px; border-radius: 5px; padding: 7px; margin-top: 15px;  margin-left: 20px;background-color: #f2af80;"
-					required>
+					maxlength="10" pattern="[5-9]{1}[1-9]{9}" required>
 				<input type="file" name="myFile"
 					style="width: 400px; border-radius: 5px; padding: 7px; margin-top: 15px;  margin-left: 20px; background-color: #f2af80;"
 					required>

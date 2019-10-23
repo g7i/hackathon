@@ -5,19 +5,7 @@ from account.models import Student,ProblemCreator,User
 def home(request):
     if request.method == 'POST':
         return render(request,f"{request.POST['email']}.html")
-    pro = False
-    pc = False
-    try:
-        Student.objects.get(user=request.user)
-        pro = True
-    except:
-        pass
-    try:
-        ProblemCreator.objects.get(user=request.user)
-        pc = True
-    except:
-        pass
-    return render(request,'home.html',{'pro':pro,'pc':pc})
+    return render(request,'home.html')
 
 
 def problem(request):

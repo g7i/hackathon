@@ -189,8 +189,8 @@ def aadhar(request):
         path = os.path.join(settings.STATIC_ROOT,'verification.csv')
         aadhar = request.POST['aadhar']
         reader = csv.DictReader(open(path))
-        response_data = {'Message':"Sorry you've not registered your Aadhar No. Please try next year."}
+        response_data = {'Message':"Sorry you've not registered your Aadhar No. Please try next year.",'Status':'N'}
         for raw in reader:
             if aadhar == raw['Aadhar Number']:
-                response_data = {'Message':'Your Aadhar No. has been verified. Fill the Form to SignUp.'}
+                response_data = {'Message':'Your Aadhar No. has been verified. Fill the Form to SignUp.','email':raw['Username'],'Status':'Y'}
         return JsonResponse(response_data)
