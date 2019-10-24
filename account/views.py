@@ -164,19 +164,26 @@ def signupp(request):
             return render(request, 'signupp.html',{'error':'Password didn\'t match.'})
 
         return redirect("home")
-       
-
     return render(request,'signupp.html')
 
 
 def login(request):
     if request.method == 'POST':
-        user = auth.authenticate(username=request.POST['username'],password=request.POST['password'])
+        user = auth.authenticate(username=request.POST['username'], password=request.POST['password'])
         if user is not None:
             auth.login(request,user)
             return redirect(request.POST.get('next','home'))
         else:
-            return render(request,'login.html',{'error':'Invalid Credentials...'})
+            try:
+                username = User.objects.get(email=request.POST['username']).username
+                user = auth.authenticate(username=username, password=request.POST['password'])
+            except:
+                pass
+            if user is not None:
+                auth.login(request,user)
+                return redirect(request.POST.get('next','home'))
+            else:
+                return render(request,'login.html',{'error':'Invalid Credentials...'})
     else:
         return render(request, 'login.html')
 

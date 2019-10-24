@@ -139,9 +139,4 @@ MEDIA_URL = '/media/'
 AUTH_USER_MODEL = 'account.User'
 
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'rahul777singh000@gmail.com'
-EMAIL_HOST_PASSWORD = '766565854O'
-EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'MIH - Password Reset Link <rahul777singh000@gmail.com>'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

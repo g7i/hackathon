@@ -1,9 +1,57 @@
 {% extends "base.html" %}
 {% block content %}
 {% load staticfiles %}
-<br>
-<br>
-<div>
+
+
+<script>
+	$('.carousel').carousel({
+		interval: 2000
+	})
+</script>
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+	<div class="carousel-inner">
+		<div class="carousel-item active">
+			<img src="{% static 'images/Image1.jpg' %}" class="d-block w-100" alt="image1">
+		</div>
+		<div class="carousel-item">
+			<img src="{% static 'images/Image2.jpg' %}" class="d-block w-100" alt="image2">
+		</div>
+		<div class="carousel-item">
+			<img src="{% static 'images/Image3.jpg' %}" class="d-block w-100" alt="image3">
+		</div>
+		<div class="carousel-item">
+			<img src="{% static 'images/Image4.jpg' %}" class="d-block w-100" alt="image4">
+		</div>
+		<div class="carousel-item">
+			<img src="{% static 'images/Image5.jpg' %}" class="d-block w-100" alt="image5">
+		</div>
+		<div class="carousel-item">
+			<img src="{% static 'images/Image6.jpg' %}" class="d-block w-100" alt="image6">
+		</div>
+		<div class="carousel-item">
+			<img src="{% static 'images/Image7.jpg' %}" class="d-block w-100" alt="image7">
+		</div>
+		<div class="carousel-item">
+			<img src="{% static 'images/Image8.jpg' %}" class="d-block w-100" alt="image8">
+		</div>
+		<div class="carousel-item">
+			<img src="{% static 'images/Image9.jpg' %}" class="d-block w-100" alt="image9">
+		</div>
+		<div class="carousel-item">
+			<img src="{% static 'images/Image10.jpg' %}" class="d-block w-100" alt="image10">
+		</div>
+	</div>
+	<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		<span class="sr-only">Previous</span>
+	</a>
+	<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+		<span class="carousel-control-next-icon" aria-hidden="true"></span>
+		<span class="sr-only">Next</span>
+	</a>
+</div>
+
+<!-- <div>
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		<ul class="carousel-indicators">
 			<li data-target="#myCarousel" data-slide-to="0" class="active">
@@ -54,86 +102,57 @@
 			</span>
 		</a>
 	</div>
-</div>
-<div>
-	<h1 style="font-size: 20px; font-weight: bold; color: #E66225;">
-		________________________________________________________________________________________________________________________________
+</div> -->
+<hr style="font-size: 20px; font-weight: bold; border-color: #E66225;width:100%">
+<div style="margin-top: 50px;display:flex;flex-wrap:wrap;justify-content: space-around;align-items: center;"
+	class="org">
+	<h1 style="font-size: 30px; font-weight: bold; color: #69B1DD;">
+		Organizers :
 	</h1>
-	<div style="margin-top: 50px;">
-		<h1
-			style="font-size: 30px; font-weight: bold; color: #69B1DD; float: left; margin-left: 79px; margin-top: 42px;">
-			Organizers :
-		</h1>
-	</div>
-	<div style="float: left; width: 12%;">
-		<img src="{% static 'images/trc.png' %}" style="height: 135px; width: 150px; margin-left: 25px;">
-	</div>
-	<div style="float: left; width: 12%;">
-		<img src="{% static 'images/cse.png' %}" style="height: 100px; width: 120px; margin-left: 45px;">
-	</div>
-	<div style="float: left; width: 12%;">
-		<img src="{% static 'images/ece.png' %}" style="height: 100px; width: 120px; margin-left: 45px;">
-	</div>
-	<div style="float: left; width: 12%;">
-		<img src="{% static 'images/ee.jpg' %}" style="height: 100px; width: 120px; margin-left: 45px;">
-	</div>
-	<div style="float: left; width: 12%;">
-		<img src="{% static 'images/mmee.png' %}" style="height: 100px; width: 120px; margin-left: 45px;">
-	</div>
-	<div style="float: left; width: 12%;">
-		<img src="{% static 'images/civil.png' %}" style="height: 100px; width: 120px; margin-left: 45px;">
-	</div>
-	<h1 style="font-size: 20px; font-weight: bold; color: #E66225;">
-		________________________________________________________________________________________________________________________________
-	</h1>
-	<div style="margin-top: 22px;">
-		<iframe width="335" height="205" src="https://www.youtube.com/embed/9wwLY9DFeQE" frameborder="0"
-			allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
-			style="float: left;margin-top: 5px; margin-left: 32px;"></iframe>
 
-		<ul style="float: left; list-style: none;">
-			<li style="font-weight: bold; font-size: 20px; float: left;">
-				What is MIH 2019-20 ?
-			</li>
-			<br>
-			<br>
-			<li style="font-size: 14px;">
-				1. Open Innovation model competition at intra college level an initiative by all departments of MITRC.
-			</li>
-			<li style="font-size: 14px;margin-top: 5px;">
-				2. An approach for recognizing the hidden talent to participate in 4th edition of highly successful
-				Smart India Hackathon initiative.
-			</li>
-			<li style="font-size: 14px;margin-top: 5px;">
-				3. Involves approx. 200+ students with 150+ ideas from all students of different branch against 30+
-				problem statements.
-			</li>
-			<li style="font-size: 14px;margin-top: 5px;">
-				4. Students of college compete to solve problems of society, industries to give solutions.
-			</li>
-			<li style="font-size: 14px;margin-top: 5px;">
-				5. Harness expertise of students from various departments.
-			</li>
-			<li style="font-size: 14px;margin-top: 5px;">
-				6. Opportunity to globalize your potential nationally.
-			</li>
-			<li style="font-size: 14px;margin-top: 5px;">
-				7. It's not about Idea, It's about making Idea Happen.
-			</li>
-		</ul>
-		</h1>
-	</div>
+	<img src="{% static 'images/trc.png' %}">
+	<img src="{% static 'images/cse.png' %}">
+	<img src="{% static 'images/ece.png' %}">
+	<img src="{% static 'images/ee.jpg' %}">
+	<img src="{% static 'images/mmee.png' %}">
+	<img src="{% static 'images/civil.png' %}">
+</div>
+<hr style="font-size: 20px; font-weight: bold; border-color: #E66225;width:100%">
+<div style="margin-top: 22px;display:flex;justify-content: space-around;flex-wrap:wrap;">
+	<iframe width="335" height="205" src="https://www.youtube.com/embed/9wwLY9DFeQE" frameborder="0"
+		allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+		style="float: left;margin-top: 5px; margin-left: 32px;"></iframe>
+
+	<ul style="float: left; list-style: none;">
+		<li style="font-weight: bold; font-size: 20px; float: left;">
+			What is MIH 2019-20 ?
+		</li>
+		<br>
+		<br>
+		<li style="font-size: 14px;">
+			1. Open Innovation model competition at intra college level an initiative by all departments of MITRC.
+		</li>
+		<li style="font-size: 14px;margin-top: 5px;">
+			2. An approach for recognizing the hidden talent to participate in 4th edition of highly successful
+			Smart India Hackathon initiative.
+		</li>
+		<li style="font-size: 14px;margin-top: 5px;">
+			3. Involves approx. 200+ students with 150+ ideas from all students of different branch against 30+
+			problem statements.
+		</li>
+		<li style="font-size: 14px;margin-top: 5px;">
+			4. Students of college compete to solve problems of society, industries to give solutions.
+		</li>
+		<li style="font-size: 14px;margin-top: 5px;">
+			5. Harness expertise of students from various departments.
+		</li>
+		<li style="font-size: 14px;margin-top: 5px;">
+			6. Opportunity to globalize your potential nationally.
+		</li>
+		<li style="font-size: 14px;margin-top: 5px;">
+			7. It's not about Idea, It's about making Idea Happen.
+		</li>
+	</ul>
 </div>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<div>
-
-</div>
-<br>
-<br>
-<br>
 {% endblock %}

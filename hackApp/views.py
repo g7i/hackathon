@@ -60,5 +60,10 @@ def prdesc(request):
 def profile(request):
     stu=Student.objects.get(user=request.user)
     ideas=Idea.objects.all().filter(user=stu)
-    return render(request,"profile.html",{"stu":stu,"ideas":ideas})
+    return render(request, "profile.html", {"stu": stu, "ideas": ideas})
+    
+def subidea(request):
+    stu=Student.objects.get(user=request.user)
+    ideas=Idea.objects.all().filter(user=stu)
+    return render(request,"subidea.html",{"stu":stu,"ideas":ideas})
 

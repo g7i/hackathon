@@ -219,7 +219,11 @@
 
 							<li
 								style="font-size: 14px; color: gray; margin: 7px;  float: left; font-weight: bold; margin-top: 48px; margin-left: 10px;">
-								<a href="{% url 'prdesc' %}">SUBMIT IDEAS</a>
+								<a href="{% url 'prdesc' %}">VIEW PROBLEMS</a>
+							</li>
+							<li
+								style="font-size: 14px; color: gray; margin: 7px;  float: left; font-weight: bold; margin-top: 48px; margin-left: 10px;">
+								<a href="{% url 'subidea' %}">SUBMITTED IDEAS</a>
 							</li>
 							{% endif %}
 							{% if user.user_type == "P" %}
@@ -310,10 +314,10 @@
 						__________________________________________________________________
 					</h1>
 
-					<form>
+					<form>{% if user.user_type == "S" %}
 						<a href="{% url 'idea' prob.id %}">
 							<input type="button" value="Participate"
-								style="background-color: #32A800; padding: 10px; border-radius: 30px; color: white; margin-left: 245px; margin-bottom: 20px;"></a>
+								style="background-color: #32A800; padding: 10px; border-radius: 30px; color: white; margin-left: 245px; margin-bottom: 20px;"></a>{% endif %}
 						<button type="button" onclick="closeForm('{{prob.id}}')"
 							style="background-color: red; padding: 10px; border-radius: 30px; color: white;margin-left: 10px;">
 							Close
@@ -340,6 +344,10 @@
 						style="width: 100px; padding: 15px; font-weight: bold; font-size: 15px; background-color: #D0EAF6; border-radius: 5px; ">
 						<a href="{% url 'profile' %}">View Profile</a></li>
 					<hr>
+
+					<li
+						style="width: 100px; padding: 15px; font-weight: bold; font-size: 15px; background-color: #D0EAF6; border-radius: 5px; ">
+						<a href="{% url 'subidea' %}">Submitted Ideas</a></li>
 				</ul>
 				{% endif %}
 			</div>
@@ -394,7 +402,7 @@
 						<td>{{prob.category}}</td>
 						<td>{{prob.theme}}</td>
 						<td>{{prob.title}}</td>
-						{% if user.user_type == "S" %}
+
 
 						<td>
 							</form>
@@ -404,8 +412,7 @@
 
 		<div>
 			<button onclick="openForm('{{prob.id}}')"
-				style="background: #E66225; padding: 10px; color: white; width: 90px; ">View</button></td>{% endif %}
-
+				style="background: #E66225; padding: 10px; color: white; width: 90px; ">View</button></td>
 			</tr>
 			{% endfor %}
 
