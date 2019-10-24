@@ -34,7 +34,8 @@ def idea(request,pr):
 
         idea = Idea.objects.create(user=Student.objects.get(user=request.user),title=title,doc=doc,desc=desc,problem=prob)
 
-        return redirect('prdesc')
+        error='Your idea has been successfully submitted.'
+        return render(request,'is.html',{'error':error})
     prob = Problem.objects.get(id=pr)
     try:
         Idea.objects.get(problem=prob,user=Student.objects.get(user=request.user))

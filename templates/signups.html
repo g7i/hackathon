@@ -32,104 +32,117 @@
 	});
 </script>
 
-<h1 style="font-size: 20px; font-weight: bold; color: #E66225;">
-	________________________________________________________________________________________________________________________________
-</h1>
-<br>
-<div>
-	<div>
-		<div>
-			<div>
-				<form>
-					<input type="text" value="" name="Adhar Card Number" placeholder="Adhar Card Number"
-						style="float: left;width: 200px; border-radius: 5px;padding: 7px;  margin-left: 420px; background-color: #f2af80;"
-						id="aadhar" maxlength="12" pattern="[0-9]{12}" required>
-					<input type="submit" value="Verify"
-						style="float: left;width: 200px; border-radius: 5px; padding: 7px;  margin-left: 40px; background-color: #32A800;margin-right:100px;"
-						id="verify">
-					<a href="{% static 'Consent Letter.docx' %}">Click to download sample consent letter</a>
-				</form>
-			</div>
+<hr style="font-size: 20px; font-weight: bold; border-color: #E66225;width:100%">
+
+<form>
+	<div class="row">
+		<div class="col-6" style="text-align: center;">
+			<input type="text" value="" name="Adhar Card Number" placeholder="Adhar Card Number"
+				style="width: 50%; border-radius: 5px;padding: 7px; background-color: #f2af80;margin-bottom: 15px;"
+				id="aadhar" maxlength="12" pattern="[0-9]{12}" required>
 		</div>
-		<h1 style="font-size: 20px; font-weight: bold; color: #E66225;">
-			________________________________________________________________________________________________________________________________
-		</h1>
-		<h6 style="color:red;font-size:2em;text-align: center;">{{error}}</h6>
-
-		<div>
-			<div style="float: left; width: 60%;">
-				<form action="{% url 'signups' %}" method="post" enctype="multipart/form-data">
-					<input type="text" value="" placeholder="Username" name="Username"
-						style="width: 400px; border-radius: 5px; padding: 7px;margin-top: 15px; margin-left: 220px; background-color: #f2af80;"
-						required>
-					<input type="password" value="" name="Password" placeholder="Password"
-						style="width: 400px; border-radius: 5px; padding: 7px; margin-top: 15px; margin-left: 220px; background-color: #f2af80;"
-						required>
-					<input type="hidden" name="aadhar" id="ad" value="">
-					<input type="password" value="" name="Confirm Password" placeholder="Confirm Password"
-						style="width: 400px; border-radius: 5px; padding: 7px; margin-top: 15px; margin-left: 220px; background-color: #f2af80;"
-						required>
-					<input type="email" id="mail" placeholder="E-mail" name="E-mail"
-						style="width: 400px; border-radius: 5px; padding: 7px; margin-top: 15px; margin-left: 220px; background-color: #f2af80;"
-						readonly required>
-					<input type="text" value="" placeholder="First Name" name="First Name"
-						style="width: 400px; border-radius: 5px; padding: 7px; margin-top: 15px; margin-left: 220px; background-color: #f2af80;"
-						required>
-					<input type="text" value="" placeholder="Last Name" name="Last Name"
-						style="width: 400px; border-radius: 5px; padding: 7px; margin-top: 15px; margin-left: 220px; background-color: #f2af80;"
-						required>
-
-			</div>
-			<div style="float: left; width: 40%;  ">
-				<input type="text" value="" name="Father's Name" placeholder="Father's Name"
-					style="width: 400px; border-radius: 5px; padding: 7px; margin-top: 15px; margin-left: 20px; background-color: #f2af80;"
-					required>
-				<input type="Number" value="" name="Collage ID" placeholder="Collage ID"
-					style="width: 400px; border-radius: 5px; padding: 7px; margin-top: 15px;  margin-left: 20px; background-color: #f2af80;"
-					required>
-				<select name="Semester" placeholder="Semester"
-					style="width: 400px; border-radius: 5px; padding: 7px; margin-top: 15px;  margin-left: 20px; background-color: #f2af80;"
-					required>
-					<option value="I" hidden disabled selected>Semester</option>
-					<option value="I">I</option>
-					<option value="III">III</option>
-					<option value="V">V</option>
-					<option value="VII">VII</option>
-				</select>
-				<select name="Branch" placeholder="Branch"
-					style="width: 400px; border-radius: 5px; padding: 7px; margin-top: 15px;  margin-left: 20px; background-color: #f2af80;"
-					required>
-					<option value="CSE" disabled hidden selected>Department</option>
-					<option value="CSE">CSE</option>
-					<option value="ECE">ECE</option>
-					<option value="EE">EE</option>
-					<option value="ME">ME</option>
-					<option value="CE">CE</option>
-				</select>
-				<input type="text" name="Contact Number" placeholder="Contact Number"
-					style="width: 400px; border-radius: 5px; padding: 7px; margin-top: 15px;  margin-left: 20px;background-color: #f2af80;"
-					maxlength="10" pattern="[5-9]{1}[0-9]{9}" required>
-				<input type="file" name="myFile"
-					style="width: 400px; border-radius: 5px; padding: 7px; margin-top: 15px;  margin-left: 20px; background-color: #f2af80;"
-					required>
-			</div>
+		<div class="col-6" style="text-align: center;">
+			<input type="submit" value="Verify"
+				style="width: 50%; border-radius: 5px; padding: 7px; background-color: #32A800;color:#000;" id="verify">
 		</div>
-
-		{% csrf_token %}
-
+	</div><br>
+	<div style="width:100%;text-align: center;">
+		<a href="{% static 'Consent Letter.docx' %}">Click to download sample consent letter</a>
 	</div>
+</form>
 
-</div>
+<hr style="font-size: 20px; font-weight: bold; border-color: #E66225;width:100%">
 
-<h1 style="font-size: 20px; font-weight: bold; color: #E66225;">
-	________________________________________________________________________________________________________________________________
-</h1>
-<div>
+<h6 style="color:red;font-size:2em;text-align: center;">{{error}}</h6>
 
-	<input type="submit" value="Submit"
-		style="width: 840px; margin-left: 220px; border-radius: 5px; padding: 7px; margin-top: 15px; background-color: #32A800; ">
-	</form>
-</div>
-<div>
+<form action="{% url 'signups' %}" method="post" enctype="multipart/form-data">
 
-	{% endblock %}
+	<div class="row">
+		<div class="col-6" style="text-align: center;">
+			<input type="text" value="" placeholder="Username" name="Username"
+				style="width: 50%; border-radius: 5px; padding: 7px;margin-top: 15px;  background-color: #f2af80;"
+				required>
+		</div>
+		<div class="col-6" style="text-align: center;">
+			<input type="password" value="" name="Password" placeholder="Password"
+				style="width: 50%; border-radius: 5px; padding: 7px; margin-top: 15px;  background-color: #f2af80;"
+				required>
+		</div>
+		<div class="col-6" style="text-align: center;">
+			<input type="hidden" name="aadhar" id="ad" value="">
+			<input type="password" value="" name="Confirm Password" placeholder="Confirm Password"
+				style="width: 50%; border-radius: 5px; padding: 7px; margin-top: 15px;  background-color: #f2af80;"
+				required>
+		</div>
+		<div class="col-6" style="text-align: center;">
+			<input type="email" id="mail" placeholder="E-mail" name="E-mail"
+				style="width: 50%; border-radius: 5px; padding: 7px; margin-top: 15px;  background-color: #f2af80;"
+				readonly required>
+		</div>
+		<div class="col-6" style="text-align: center;">
+			<input type="text" value="" placeholder="First Name" name="First Name"
+				style="width: 50%; border-radius: 5px; padding: 7px; margin-top: 15px;  background-color: #f2af80;"
+				required>
+		</div>
+		<div class="col-6" style="text-align: center;">
+			<input type="text" value="" placeholder="Last Name" name="Last Name"
+				style="width: 50%; border-radius: 5px; padding: 7px; margin-top: 15px;  background-color: #f2af80;"
+				required>
+		</div>
+		<div class="col-6" style="text-align: center;">
+
+			<input type="text" value="" name="Father's Name" placeholder="Father's Name"
+				style="width: 50%; border-radius: 5px; padding: 7px; margin-top: 15px;  background-color: #f2af80;"
+				required>
+		</div>
+		<div class="col-6" style="text-align: center;">
+			<input type="Number" value="" name="Collage ID" placeholder="Collage ID"
+				style="width: 50%; border-radius: 5px; padding: 7px; margin-top: 15px;   background-color: #f2af80;"
+				required>
+		</div>
+		<div class="col-6" style="text-align: center;">
+			<select name="Semester" placeholder="Semester"
+				style="width: 50%; border-radius: 5px; padding: 7px; margin-top: 15px;   background-color: #f2af80;"
+				required>
+				<option value="I" hidden disabled selected>Semester</option>
+				<option value="I">I</option>
+				<option value="III">III</option>
+				<option value="V">V</option>
+				<option value="VII">VII</option>
+			</select>
+		</div>
+		<div class="col-6" style="text-align: center;">
+			<select name="Branch" placeholder="Branch"
+				style="width: 50%; border-radius: 5px; padding: 7px; margin-top: 15px;   background-color: #f2af80;"
+				required>
+				<option value="CSE" disabled hidden selected>Department</option>
+				<option value="CSE">CSE</option>
+				<option value="ECE">ECE</option>
+				<option value="EE">EE</option>
+				<option value="ME">ME</option>
+				<option value="CE">CE</option>
+			</select>
+		</div>
+		<div class="col-6" style="text-align: center;">
+			<input type="text" name="Contact Number" placeholder="Contact Number"
+				style="width: 50%; border-radius: 5px; padding: 7px; margin-top: 15px;  background-color: #f2af80;"
+				maxlength="10" pattern="[5-9]{1}[0-9]{9}" required>
+		</div>
+		<div class="col-6" style="text-align: center;">
+			<input type="file" name="myFile"
+				style="width: 50%; border-radius: 5px; padding: 7px; margin-top: 15px;   background-color: #f2af80;"
+				required>
+		</div>
+	</div>
+	{% csrf_token %}
+
+	<hr style="font-size: 20px; font-weight: bold; border-color: #E66225;width:100%">
+
+	<div style="width: 100%;text-align:center;">
+
+		<input type="submit" value="Submit"
+			style="width: 50%; border-radius: 5px; padding: 7px; margin-top: 15px; background-color: #32A800;color:#000; ">
+	</div>
+</form>
+
+{% endblock %}

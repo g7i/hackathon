@@ -28,20 +28,18 @@
         background-color: #dddddd;
     }
 </style>
-<h1 style="font-size: 20px; font-weight: bold; color: #E66225;">
-    ________________________________________________________________________________________________________________________________
-</h1>
+<hr style="font-size: 20px; font-weight: bold; border-color: #E66225;width:100%;margin-bottom:0;">
 <br>
 
 <!-- <div style="text-align: center;">
 								<input type="button" value="EDIT" style="width: 440px;  border-radius: 5px; padding: 7px; margin-top: 15px; background-color: #32A800; ">
 							</a>				</form>
 			</div> -->
-<div style="float:left;width: 90%;">
+<div class="container">
     <p style="font-weight: bold; font-size: 40px; text-align: center;">
         Submitted Ideas
     </p>
-    <table style="margin-left: 100px; margin-top: 30px;">
+    <table style="width:90%; margin-top: 30px;">
         <tr>
             <th>Title</th>
             <th>Problem Code</th>
@@ -66,6 +64,4 @@
         {% endfor %}
     </table>
 </div>
-<div>
-
-    {% endblock %}
+{% endblock %}

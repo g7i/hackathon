@@ -6,19 +6,24 @@
 		<title>
 			MIH
 		</title>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
 			integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 		<style>
 			.blink {
-				animation: blinker 0.8s linear infinite;
+				animation: blinker 2s linear infinite;
 			}
 
 			@keyframes blinker {
-				50% {
+				20% {
 					opacity: 0;
 					color: #E66225;
+				}
+
+				50% {
+					opacity: 1;
+					color: #fff;
 				}
 			}
 
@@ -35,19 +40,80 @@
 				width: 280px;
 			}
 
+			.navbar a img {
+				width: 10vw;
+			}
+
+			.carousel-item img {
+				width: 100%;
+				height: 70vh;
+			}
+
+			.org img {
+				width: 12vw;
+				height: 12vh;
+				padding: 10px;
+			}
+
+			.hov:hover {
+				background-color: #E66225;
+				color: #fff !important;
+				text-decoration: none;
+
+			}
+
+			.hov {
+				transition: all 0.5s ease-in-out;
+				text-decoration: none;
+				border: 1px solid #E66225;
+				border-radius: 30px;
+				padding: 10px;
+				color: #E66225 !important;
+				background-color: #fff;
+			}
+
+			a {
+				text-decoration: none;
+			}
+
+			@media only screen and (max-width:1000px) {
+
+				.carousel-item img {
+					height: 30vh;
+					max-height: 30vh !important;
+				}
+
+				.org img {
+					width: 18vw;
+					height: 10vh;
+					padding: 10px;
+				}
+
+				.navbar a img {
+					height: 7vh;
+					width: auto;
+				}
+
+				.navbar {
+					font-size: 1.7em;
+				}
+			}
+
+
+
 			/* The popup form - hidden by default */
 			.form-popup {
 				display: none;
 				position: fixed;
-				margin-left: 600px;
-
 				border: 3px solid #f1f1f1;
+				top: 7vh;
 				z-index: 9;
+				margin-left: 10vw;
+				width: 80vw;
 			}
 
 			/* Add styles to the form container */
 			.form-container {
-				max-width: 300px;
 				padding: 10px;
 				background-color: white;
 			}
@@ -118,384 +184,328 @@
 			.dropdown-menu>.active>a:focus,
 			.dropdown-menu>.active>a:hover {
 				text-decoration: none;
-				background-color: orange;
+				background-color: #E66225;
 				outline: 0;
-			}
-
-			.table {
-				font-family: arial, sans-serif;
-				border-collapse: collapse;
-				width: 100%;
-			}
-
-			.td {
-				border: 1px solid #dddddd;
-				text-align: left;
-				padding: 8px;
-			}
-
-			.tr:nth-child(even) {
-				background-color: #dddddd;
-			}
-
-			.th {
-				border: 1px solid #dddddd;
-				text-align: left;
-				padding: 8px;
-			}
-		</style>
-		<style>
-			table {
-				font-family: arial, sans-serif;
-				border-collapse: collapse;
-				width: 90%;
-			}
-
-			td,
-			th {
-				border: 1px solid #dddddd;
-				text-align: left;
-				padding: 8px;
-			}
-
-			tr:nth-child(even) {
-				background-color: #dddddd;
 			}
 		</style>
 	</head>
 
 	<body>
 		<div style=" height: 37px;">
-			<div>
-				<div>
-					<li
-						style="position: absolute; color: wihte;z-index:9999;width: 100%; text-align: center; font-size: 21px; font-weight: 36; background: #E66225; list-style: none;">
-						<marquee>
-							<a href="" style="color: #FFF; text-decoration: none; ">
-								Launch of MITRC Internal Hackathon 2019
-							</a>
-							<a href="" style="color: #E66225; text-decoration: none; ">
-								Zulu
-							</a>
-							<a href="" style="color: #FFF; text-decoration: none; ">
-								Idea submission starts from 22nd October, 2019
-							</a><a href="" style="color: #E66225; text-decoration: none; ">
-								Zulu
-							</a><a href="" style="color: #FFF; text-decoration: none; ">
-								Last date for Idea Submissoin is 5th November, 2019
-							</a>
-						</marquee>
-					</li>
-				</div>
-				<br>
-				<br>
-				<div>
-					<div>
-						<a href="{% url 'home' %}">
-							<img src="{% static 'images/mih.png' %}"
-								style="height: 120px; width: 120px; float: left;margin-left: 20px;">
-							<img src="{% static 'images/mit.png' %}"
-								style="height: 60px; width: 150px; margin-top: 27px; float: left;">
-						</a>
-					</div>
+			<li
+				style="position: absolute; color: white;z-index:9999;width: 100%; text-align: center; font-size: 21px; font-weight: 36; background: #E66225; list-style: none;">
+				<marquee scrollamount="10">
+					<a href="" style="color: #FFF; text-decoration: none; margin-right:7vw;">
+						Launch of MITRC Internal Hackathon 2019
+					</a>
 
+					<a href="" style="color: #FFF; text-decoration: none; margin-right:7vw;">
+						Idea submission starts from 22nd October, 2019
 
-
-					<div>
-						<ul style="list-style: none;">
-							<li
-								style="font-size: 14px; color: gray; margin: 7px;  float: left; font-weight: bold; margin-top: 48px;margin-left: 60px;">
-								<a href="{% url 'about' %}">ABOUT MIH</a>
-							</li>
-							<li
-								style="font-size: 14px; color: gray; margin: 7px;  float: left; font-weight: bold; margin-top: 48px; margin-left: 10px;">
-								<a href="{% url 'past' %}">PAST EVENTS</a>
-							</li>
-							{% if user.user_type == "S" %}
-							<li
-								style="font-size: 14px; color: gray; margin: 7px;  float: left; font-weight: bold; margin-top: 48px; margin-left: 10px;">
-								<a href="{% url 'profile' %}">PROFILE</a>
-							</li>
-
-							<li
-								style="font-size: 14px; color: gray; margin: 7px;  float: left; font-weight: bold; margin-top: 48px; margin-left: 10px;">
-								<a href="{% url 'prdesc' %}">VIEW PROBLEMS</a>
-							</li>
-							<li
-								style="font-size: 14px; color: gray; margin: 7px;  float: left; font-weight: bold; margin-top: 48px; margin-left: 10px;">
-								<a href="{% url 'subidea' %}">SUBMITTED IDEAS</a>
-							</li>
-							{% endif %}
-							{% if user.user_type == "P" %}
-
-							<li
-								style="font-size: 14px; color: gray; margin: 7px;  float: left; font-weight: bold; margin-top: 48px; margin-left: 10px;">
-								<a href="{% url 'problem' %}">SUBMIT PROBLEM</a>
-							</li>
-
-							<li
-								style="font-size: 14px; color: gray; margin: 7px;  float: left; font-weight: bold; margin-top: 48px; margin-left: 10px;">
-								<a href="{% url 'prdesc' %}">PROBLEMS LIST</a>
-							</li>
-							{% endif %}
-
-							<li
-								style="font-size: 14px; color: gray; margin: 7px; float: left; font-weight: bold; margin-top: 48px; margin-left: 10px;">
-								<a href="https://www.sih.gov.in/">SIH 2020</a>
-							</li>
-
-						</ul>
-					</div>
-
-				</div>
-				{% if user.is_authenticated %}
-				<a href="{% url 'logout' %}"
-					style="text-decoration: none;background: #E66225; border-radius: 30px; padding: 10px; color: white; margin-left: 10px; width: 90px;">LOGOUT
-					{{user.username}}</a>
-				{% endif %}
-
-
-				{% for prob in probs %}
-				<div class="form-popup" id="{{prob.id}}" style="background-color: white; border-radius: 30px;">
-
-
-					<h1 style="font-size: 20px; font-weight: bold; color: #E66225; margin-left: 3px;">
-						___________________________________________________________________
-					</h1>
-
-					<div>
-						<table style="margin-top: 40px;">
-							<div style="width: 50%;float: left;">
-								<tr>
-									<th> Organisation
-									<td>{{prob.org_type}}</td>
-									</th>
-								</tr>
-							</div>
-							<div style="width: 50%;float: left;">
-								<tr>
-									<th> Title
-									<td>{{prob.title}}</td>
-									</th>
-								</tr>
-							</div>
-							<div style="width: 50%;float: left;">
-								<tr>
-									<th>Problem Code
-									<td>{{prob.code}}</td>
-									</th>
-								</tr>
-							</div>
-							<div style="width: 50%;float: left;">
-								<tr>
-									<th>Problem Category
-									<td>{{prob.category}}</td>
-									</th>
-								</tr>
-							</div>
-							<div style="width: 50%;float: left;">
-								<tr>
-									<th>Problem Theme
-									<td>{{prob.theme}}</td>
-									</th>
-								</tr>
-							</div>
-							<div style="width: 50%;float: left;">
-								<tr>
-									<th>Problem Description
-									<td>{{prob.desc}}
-									</td>
-									</th>
-								</tr>
-							</div>
-						</table>
-					</div>
-					<h1 style="font-size: 20px; font-weight: bold; color: #E66225; margin-left: 3px;">
-						__________________________________________________________________
-					</h1>
-
-					<form>{% if user.user_type == "S" %}
-						<a href="{% url 'idea' prob.id %}">
-							<input type="button" value="Participate"
-								style="background-color: #32A800; padding: 10px; border-radius: 30px; color: white; margin-left: 245px; margin-bottom: 20px;"></a>{% endif %}
-						<button type="button" onclick="closeForm('{{prob.id}}')"
-							style="background-color: red; padding: 10px; border-radius: 30px; color: white;margin-left: 10px;">
-							Close
-						</button>
-					</form>
-				</div>
-				{% endfor %}
-			</div>
+					</a><a href="" style="color: #FFF; text-decoration: none;margin-right:7vw; ">
+						Last date for Idea Submissoin is 5th November, 2019
+					</a>
+				</marquee>
+			</li>
 		</div>
+		<!-- <div>
+						<div>
+							<a href="{% url 'home' %}">
+								<img src="{% static 'images/mih.png' %}"
+									style="height: 120px; width: 120px; float: left;margin-left: 20px;">
+								<img src="{% static 'images/mit.png' %}"
+									style="height: 60px; width: 150px; margin-top: 27px; float: left;">
+							</a>
+						</div>
 
-		<h1 style="font-size: 20px; font-weight: bold; color: #E66225;">
-			________________________________________________________________________________________________________________________________
-		</h1>
+
+
+						<div>
+							<ul style="list-style: none;">
+								<li
+									style="font-size: 14px; color: gray; margin: 7px;  float: left; font-weight: bold; margin-top: 48px;margin-left: 60px;">
+									<a href="{% url 'about' %}">ABOUT MIH</a>
+								</li>
+								<li
+									style="font-size: 14px; color: gray; margin: 7px;  float: left; font-weight: bold; margin-top: 48px; margin-left: 10px;">
+									<a href="{% url 'past' %}">PAST EVENTS</a>
+								</li>
+								{% if user.user_type == "S" %}
+								<li
+									style="font-size: 14px; color: gray; margin: 7px;  float: left; font-weight: bold; margin-top: 48px; margin-left: 10px;">
+									<a href="{% url 'profile' %}">PROFILE</a>
+								</li>
+
+								<li
+									style="font-size: 14px; color: gray; margin: 7px;  float: left; font-weight: bold; margin-top: 48px; margin-left: 10px;">
+									<a href="{% url 'prdesc' %}">VIEW PROBLEMS</a>
+								</li>
+								<li
+									style="font-size: 14px; color: gray; margin: 7px;  float: left; font-weight: bold; margin-top: 48px; margin-left: 10px;">
+									<a href="{% url 'subidea' %}">SUBMITTED IDEAS</a>
+								</li>
+								{% endif %}
+								{% if user.user_type == "P" %}
+
+								<li
+									style="font-size: 14px; color: gray; margin: 7px;  float: left; font-weight: bold; margin-top: 48px; margin-left: 10px;">
+									<a href="{% url 'problem' %}">SUBMIT PROBLEM</a>
+								</li>
+								<li
+									style="font-size: 14px; color: gray; margin: 7px;  float: left; font-weight: bold; margin-top: 48px; margin-left: 10px;">
+									<a href="{% url 'prdesc' %}">PROBLEMS LIST</a>
+								</li>
+								{% endif %}
+								<li
+									style="font-size: 14px; color: gray; margin: 7px; float: left; font-weight: bold; margin-top: 48px; margin-left: 10px;">
+									<a href="https://www.sih.gov.in/">SIH 2020</a>
+								</li>
+
+							</ul>
+						</div>
+					</div> -->
+		<nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-bottom:0;">
+			<a href="{% url 'home' %}" style="text-decoration: none;margin-right:10px;">
+				<img src="{% static 'images/mih.png' %}">
+				<img src="{% static 'images/mit.png' %}">
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+				aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarText">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a href="{% url 'about' %}" class="nav-link">ABOUT MIH</a>
+					</li>
+					<li class="nav-item">
+						<a href="{% url 'past' %}" class="nav-link">PAST EVENTS</a>
+					</li>
+					{% if user.user_type == "S" %}
+					<li class="nav-item">
+						<a href="{% url 'profile' %}" class="nav-link">PROFILE</a>
+					</li>
+
+					<li class="nav-item">
+						<a href="{% url 'prdesc' %}" class="nav-link">VIEW PROBLEMS</a>
+					</li>
+					<li class="nav-item">
+						<a href="{% url 'subidea' %}" class="nav-link">SUBMITTED IDEAS</a>
+					</li>
+					{% endif %}
+					{% if user.user_type == "P" %}
+
+					<li class="nav-item">
+						<a href="{% url 'problem' %}" class="nav-link">SUBMIT PROBLEM</a>
+					</li>
+					<li class="nav-item">
+						<a href="{% url 'prdesc' %}" class="nav-link">PROBLEMS LIST</a>
+					</li>
+					{% endif %}
+					<li class="nav-item">
+						<a href="https://www.sih.gov.in/" class="nav-link">SIH 2020</a>
+					</li>
+				</ul>
+				<span class="navbar-text">
+					{% if user.is_authenticated %}
+					<a href="{% url 'logout' %}" style="display:block;" class="hov">LOGOUT
+						{{user.username}}</a>
+					{% else %}
+					<button onclick="openForm()" class="hov blink">REGISTER</button>
+					<a href="{% url 'login' %}" class="hov">LOGIN</a>
+					{% endif %}
+				</span>
+			</div>
+		</nav>
+
+
+		{% for prob in probs %}
+		<div class="form-popup" id="{{prob.id}}" style="background-color: white; border-radius: 30px;">
+			<hr style="font-size: 20px; font-weight: bold; border-color: #E66225;width:100%">
+			<div>
+				<table style="margin-top: 40px;">
+					<div style="width: 50%;float: left;">
+						<tr>
+							<th> Organisation
+							<td>{{prob.org_type}}</td>
+							</th>
+						</tr>
+					</div>
+					<div style="width: 50%;float: left;">
+						<tr>
+							<th> Title
+							<td>{{prob.title}}</td>
+							</th>
+						</tr>
+					</div>
+					<div style="width: 50%;float: left;">
+						<tr>
+							<th>Problem Code
+							<td>{{prob.code}}</td>
+							</th>
+						</tr>
+					</div>
+					<div style="width: 50%;float: left;">
+						<tr>
+							<th>Problem Category
+							<td>{{prob.category}}</td>
+							</th>
+						</tr>
+					</div>
+					<div style="width: 50%;float: left;">
+						<tr>
+							<th>Problem Theme
+							<td>{{prob.theme}}</td>
+							</th>
+						</tr>
+					</div>
+					<div style="width: 50%;float: left;">
+						<tr>
+							<th>Problem Description
+							<td>{{prob.desc}}
+							</td>
+							</th>
+						</tr>
+					</div>
+				</table>
+			</div>
+			<hr style="font-size: 20px; font-weight: bold; border-color: #E66225;width:100%;margin-bottom:0;">
+
+			{% if user.user_type == "S" %}
+			<a href="{% url 'idea' prob.id %}">
+				<input type="button" value="Participate"
+					style="background-color: #32A800; padding: 10px; border-radius: 30px; color: white; margin-left: 245px; margin-bottom: 20px;"></a>{% endif %}
+			<button type="button" onclick="closeForm('{{prob.id}}')"
+				style="background-color: red; padding: 10px; border-radius: 30px; color: white;margin-left: 10px;">
+				Close
+			</button>
+		</div>
+		{% endfor %}
+
+
+		<hr style="font-size: 20px; font-weight: bold; border-color: #E66225;width:100%">
 		<p style="font-weight: bold; font-size: 40px; text-align: center;">
 			MIH Problem Statements
 		</p>
-		<div>
 
-			<div style="float: left; width: 10%;">
-				{% if user.user_type == "S" %}
-
-				<ul style="list-style: none;">
-					<li
-						style="width: 100px; padding: 15px; font-weight: bold; font-size: 15px; background-color: #D0EAF6; border-radius: 5px; ">
-						<a href="{% url 'profile' %}">View Profile</a></li>
-					<hr>
-
-					<li
-						style="width: 100px; padding: 15px; font-weight: bold; font-size: 15px; background-color: #D0EAF6; border-radius: 5px; ">
-						<a href="{% url 'subidea' %}">Submitted Ideas</a></li>
-				</ul>
-				{% endif %}
+		<form style="margin-left: 50px;" action="{% url 'prdesc' %}" method="POST">
+			<div style="display:flex;justify-content: center;flex-wrap:wrap;">
+				<select name="category" placeholder="Problem Category"
+					style=" border-radius: 5px; padding: 7px; margin-top: 15px;   background-color: #f2af80;" required>
+					<option value="Hardware" disabled hidden selected>Problem Category</option>
+					<option value="Hardware">Hardware</option>
+					<option value="Software">Software</option>
+				</select>
+				<select name="theme" placeholder="Problem Theme"
+					style=" border-radius: 5px; padding: 7px; margin-top: 15px; background-color: #f2af80;margin-left:20px;"
+					required>
+					<option value="Smart Communication" hidden disabled selected>Problem Theme</option>
+					<option value="Smart Communication">Smart Communication</option>
+					<option value="Healthcare & Biomedical devices">Healthcare & Biomedical devices</option>
+					<option value="Agriculture & Rural Development">Agriculture & Rural Development</option>
+					<option value="Smart Vehicles">Smart Vehicles</option>
+					<option value="Food Processing">Food Processing</option>
+					<option value="Robotics & Drones">Robotics & Drones</option>
+					<option value="Waste Management">Waste Management</option>
+					<option value="Clean Water">Clean Water</option>
+					<option value="Renewable Energy">Renewable Energy</option>
+				</select>
+				<input type="submit" value="Search"
+					style="margin-left: 20px; border-radius: 5px; padding: 7px; margin-top: 15px; background-color: #32A800; ">
+				{% csrf_token %}
 			</div>
-			<div style="float:left;width: 90%;">
-				<div>
-					<form style="margin-left: 50px;" action="{% url 'prdesc' %}" method="POST">
+		</form>
+		<br>
+		<div class="container">
 
-						<select name="category" placeholder="Problem Category"
-							style="width: 200px; border-radius: 5px; padding: 7px; margin-top: 15px;  margin-left: 20px; background-color: #f2af80;"
-							required>
-							<option value="Hardware" disabled hidden selected>Problem Category</option>
-							<option value="Hardware">Hardware</option>
-							<option value="Software">Software</option>
-						</select>
-						<select name="theme" placeholder="Problem Theme"
-							style="width: 200px; border-radius: 5px; padding: 7px; margin-top: 15px; background-color: #f2af80;float: left;"
-							required>
-							<option value="Smart Communication" hidden disabled selected>Problem Theme</option>
-							<option value="Smart Communication">Smart Communication</option>
-							<option value="Healthcare & Biomedical devices">Healthcare & Biomedical devices</option>
-							<option value="Agriculture & Rural Development">Agriculture & Rural Development</option>
-							<option value="Smart Vehicles">Smart Vehicles</option>
-							<option value="Food Processing">Food Processing</option>
-							<option value="Robotics & Drones">Robotics & Drones</option>
-							<option value="Waste Management">Waste Management</option>
-							<option value="Clean Water">Clean Water</option>
-							<option value="Renewable Energy">Renewable Energy</option>
-						</select>
-						<input type="submit" value="Search"
-							style="width: 60px; margin-left: 20px; border-radius: 5px; padding: 7px; margin-top: 15px; background-color: #32A800; ">
-						{% csrf_token %}
-					</form>
-				</div>
-				<table style="margin-left: 50px; margin-top: 30px;">
-					<tr>
-						<th>Organisation</th>
-						<th>Problem Code</th>
-						<th>Problem Catagory</th>
-						<th>Problem Theme</th>
-						<th>Problem Title</th>
-						{% if user.user_type == "S" %}
-						<th></th>
-						{% endif %}
+			<table style="width:100%;margin-top: 30px;">
+				<tr>
+					<th>Organisation</th>
+					<th>Problem Code</th>
+					<th>Problem Catagory</th>
+					<th>Problem Theme</th>
+					<th>Problem Title</th>
+					{% if user.user_type == "S" %}
+					<th></th>
+					{% endif %}
 
-					</tr>
-					</tr>
-					{% for prob in probs %}
+				</tr>
+				</tr>
+				{% for prob in probs %}
 
-					<tr>
-						<td>{{prob.org_type}}</td>
-						<td>{{prob.code}}</td>
-						<td>{{prob.category}}</td>
-						<td>{{prob.theme}}</td>
-						<td>{{prob.title}}</td>
-
-
-						<td>
-							</form>
-			</div>
-
-		</div>
-
-		<div>
-			<button onclick="openForm('{{prob.id}}')"
-				style="background: #E66225; padding: 10px; color: white; width: 90px; ">View</button></td>
-			</tr>
-			{% endfor %}
-
+				<tr>
+					<td>{{prob.org_type}}</td>
+					<td>{{prob.code}}</td>
+					<td>{{prob.category}}</td>
+					<td>{{prob.theme}}</td>
+					<td>{{prob.title}}</td>
+					<td>
+						<button onclick="openForm('{{prob.id}}')"
+							style="background: #E66225; padding: 10px; color: white; width: 90px; ">View</button></td>
+				</tr>
+				{% endfor %}
 			</table>
-
-		</div>
 		</div>
 
+		<br>
 
-
-
-
-		<h1 style="font-size: 20px; font-weight: bold; color: #E66225;">
-			________________________________________________________________________________________________________________________________
-		</h1>
-		<div>
-			<div style="float: left; width: 25.33%">
-				<img src="{% static 'images/mihh.png' %}"
-					style="width: 170px; height: 170px; margin-left: 90px;margin-top: 20px;">
+		<hr style="font-size: 20px; font-weight: bold; border-color: #E66225;width:100%">
+		<div
+			style="display: flex;justify-content: space-evenly;flex-wrap: wrap;text-align: center;background-color: #fff;padding-top:15px;">
+			<div>
+				<img src="{% static 'images/mihh.png' %}" style="width: 170px; height: 170px;">
 				<br>
 				<br>
-				<h1
-					style="font-size: 15px; font-family: calibri; font-weight: bold; margin-left: 63px; margin-bottom: 40px;">
+				<h1 style="font-size: 15px; font-family: calibri; font-weight: bold; margin-bottom: 40px;">
 					MITRC INTERNAL HACKATHON
 				</h1>
 			</div>
-			<div style="float: left;">
-				<div style=" float: right;">
-					<h1 style="font-size: 15px; font-weight: bold; margin-left: 300px; margin-bottom: 5px;">
-						MITRC INTERNAL HACATHON
-					</h1>
-					<div style="margin-top: 20px;">
-						<span class="fa fa-phone"
-							style="font-size: 40px; margin-left: 300px; font-size: 15px; margin-top: 5px; float: left; color: #38D855;">
-						</span>
-						<p style="font-size: 40px; font-size: 15px; margin-left: 7px; margin-bottom: 5px; float: left;">
-							+91 (144) – 2731596, 2980643
-						</p>
-						<br>
-						<ul style="list-style: none;">
-							<br>
-							<li style="font-size: 15px; margin-left: 260px;">
-								<i class="fa fa-clock-o" style="color: #38D855;">
-								</i>
-								Mon to Sat-9.00 AM to 5:00 PM
-							</li>
-						</ul>
-						<a href="mailto:hackathon@mitrc.ac.in">
-							<ul style="list-style: none;">
-								<li style="font-size: 15px; margin-left: 290px;">
-									<img src="{% static 'images/gmail.png' %}"
-										style="height: 15px; width: 15spx; margin-bottom: 2px;">
-									hackathon@mitrc.ac.in
-								</li>
-							</ul>
-						</a>
-						<a href="https://www.facebook.com/alwarmitrc">
-							<span class="fa fa-facebook-official"
-								style="font-size: 35px; margin-left: 330px; color: #4064AD;">
-							</span>
-						</a>
-						<a href="https://twitter.com/MITRCALWAR">
-							<span class="fa fa-twitter-square"
-								style="font-size: 35px; margin-left: 40px; color: #1C9DEB">
-							</span>
-						</a>
-						<a href="https://www.youtube.com/channel/UCvDsa3ymBb-pjGyVQ_kAhnw">
-							<span class="fa fa-youtube" style="font-size: 35px; margin-left: 40px; color: #F80000;">
-							</span>
-						</a>
-					</div>
-					<ul style="list-style: none; margin-top: 10px;">
-						<br>
-						<li style="font-size: 20px; font-weight: bold; float: left;">
+			<div style="text-align: center;">
 
-							<span class="fa fa-copyright" style="font-size: 20px; color: #FF7100;">
-							</span> ALL COPYRIGHTS RESERVED
+				<ul style="list-style: none;">
+					<li style="font-size: 15px; ">
+						<i class="fa fa-phone" style="color: #38D855;">
+						</i>
+						+91 (144) – 2731596, 2980643
+					</li>
+				</ul>
+				<ul style="list-style: none;">
+					<li style="font-size: 15px; ">
+						<i class="fa fa-clock-o" style="color: #38D855;">
+						</i>
+						Mon to Sat-9.00 AM to 5:00 PM
+					</li>
+				</ul>
+				<a href="mailto:hackathon@mitrc.ac.in">
+					<ul style="list-style: none;">
+						<li style="font-size: 15px; ">
+							<img src="{% static 'images/gmail.png' %}" style="height: 15px; width: 15px;">
+							hackathon@mitrc.ac.in
 						</li>
-
 					</ul>
-				</div>
+				</a>
+				<a href="https://www.facebook.com/alwarmitrc">
+					<span class="fa fa-facebook-official" style="font-size: 35px;color: #4064AD;">
+					</span>
+				</a>
+				<a href="https://twitter.com/MITRCALWAR">
+					<span class="fa fa-twitter-square" style="font-size: 35px;  color: #1C9DEB">
+					</span>
+				</a>
+				<a href="https://www.youtube.com/channel/UCvDsa3ymBb-pjGyVQ_kAhnw">
+					<span class="fa fa-youtube" style="font-size: 35px;  color: #F80000;">
+					</span>
+				</a>
+				<ul style="list-style: none;">
+					<br>
+					<li style="font-size: 20px; font-weight: bold; float: left;">
+						<span class="fa fa-copyright" style="font-size: 20px; color: #FF7100;">
+						</span>
+						ALL COPYRIGHTS RESERVED.
+					</li>
+
+				</ul>
 			</div>
-		</div>
 		</div>
 		<script>
 			function openForm(id) {
@@ -508,8 +518,14 @@
 		</script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
 		</script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js">
-		</script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+			crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+			crossorigin="anonymous"></script>
+
 	</body>
+
 
 </html>
