@@ -46,7 +46,13 @@ def idea(request,pr):
 
 
 def about(request):
-    return render(request,'about.html')
+    return render(request, 'about.html')
+    
+def downloads(request):
+    return render(request, 'downloads.html')
+    
+def faq(request):
+    return render(request,'faq.html')
 
 def past(request):
     return render(request,'past.html')
@@ -54,9 +60,23 @@ def past(request):
 
 def prdesc(request):
     probs = Problem.objects.all()
+    ideas = Idea.objects.all()
+    idea = []
     if request.method == 'POST':
-        probs = Problem.objects.all().filter(category=request.POST['category'],theme=request.POST['theme'])
-    return render(request,'prdesc.html',{'probs':probs})
+        category = request.POST['category']
+        code = request.POST['code']
+        theme = request.POST['theme']
+        probs = Problem.objects.all()
+        if category:
+            probs = probs.filter(category=category)
+        if code:
+            probs = probs.filter(code=code)
+        if theme:
+            probs = probs.filter(theme=theme)
+    for prob in probs:
+        idea.append(len(ideas.filter(problem=prob)))
+    idea = zip(probs, idea)
+    return render(request,'prdesc.html',{'probs':probs,'idea':idea})
 
 def profile(request):
     stu=Student.objects.get(user=request.user)

@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block content %}
+{% load staticfiles %}
+
+<style>
+    .down a {
+        margin: auto;
+        display: block;
+        width: 80%;
+    }
+
+    .down .row {
+        padding-top: 5vh;
+        padding-bottom: 5vh;
+    }
+</style>
+<hr style="font-size: 20px; font-weight: bold; border-color: #E66225;width:100%">
+<br>
+<h1 style="font-weight: bold; font-size: 40px; color: #6BB2DE; text-align: center;">
+    Downloads
+</h1><br>
+<hr style="font-size: 20px; font-weight: bold; border-color: #E66225;width:100%">
+<div class="container down">
+
+    <div class="row">
+        <div style="width: 100%;text-align: center;">
+            <h1 style="font-weight: bold; font-size: 20px; color: #E66225;">
+                Sample Formats
+            </h1>
+        </div><br>
+        <hr style="font-size: 20px; font-weight: bold; border-color: #6BB2DE;width:100%">
+
+        <div class="col-lg-6 col-sm-12" style="text-align:center;margin-bottom:15px;">
+            <a href="{% static 'downloads/h.pdf' %}" class="hovg">Hardware Type Idea Submission PDF</a>
+        </div>
+        <div class="col-lg-6 col-sm-12" style="text-align:center;margin-bottom:15px;">
+            <a href="{% static 'downloads/h.pptx' %}" class="hov">Hardware Type Idea Submission PPT</a>
+        </div>
+        <div class="col-lg-6 col-sm-12" style="text-align:center;margin-bottom:15px;">
+            <a href="{% static 'downloads/s.pdf' %}" class="hovg">Software Type Idea Submission PDF</a>
+        </div>
+        <div class="col-lg-6 col-sm-12" style="text-align:center;margin-bottom:15px;">
+            <a href="{% static 'downloads/s.pptx' %}" class="hov">Software Type Idea Submission PPT</a>
+        </div>
+        <div class="col-lg-6 col-sm-12" style="text-align:center;margin-bottom:15px;">
+            <a href="{% static 'Consent Letter.docx' %}" class="hovg">Consent Letter For Students</a>
+        </div>
+    </div>
+    <div class="row"><br>
+        <div style="width: 100%;text-align: center;">
+            <h1 style="font-weight: bold; font-size: 20px; color: #E66225;">
+                Others
+            </h1>
+        </div><br>
+        <hr style="font-size: 20px; font-weight: bold; border-color: #6BB2DE;width:100%">
+
+
+        <div class="col-lg-6 col-sm-12" style="text-align:center;margin-bottom:15px;">
+            <a href="{% static 'downloads/ad.pdf' %}" class="hov">Final Advertisement</a>
+        </div>
+        <div class="col-lg-6 col-sm-12" style="text-align:center;margin-bottom:15px;">
+            <a href="{% static 'downloads/fc.pdf' %}" class="hovg">Flow Chart of MIH</a>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock content %}

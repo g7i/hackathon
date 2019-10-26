@@ -55,6 +55,23 @@
 				padding: 10px;
 			}
 
+			.hovg:hover {
+				background-color: #32A800;
+				color: #fff !important;
+				text-decoration: none;
+
+			}
+
+			.hovg {
+				transition: all 0.5s ease-in-out;
+				text-decoration: none;
+				border: 1px solid #32A800;
+				border-radius: 30px;
+				padding: 10px;
+				color: #32A800 !important;
+				background-color: #fff;
+			}
+
 			.hov:hover {
 				background-color: #E66225;
 				color: #fff !important;
@@ -73,6 +90,10 @@
 			}
 
 			a {
+				text-decoration: none;
+			}
+
+			a:hover {
 				text-decoration: none;
 			}
 
@@ -106,16 +127,20 @@
 				display: none;
 				position: fixed;
 				border: 3px solid #f1f1f1;
-				top: 7vh;
+				right: 0;
+				left: 0;
+				bottom: 0;
+				top: 0;
 				z-index: 9;
-				margin-left: 10vw;
-				width: 80vw;
+				padding: 15vh 15vw 15vh 15vw;
+				overflow-y: auto;
 			}
 
 			/* Add styles to the form container */
 			.form-container {
 				padding: 10px;
 				background-color: white;
+				overflow-y: auto;
 			}
 
 			/* Full-width input fields */
@@ -123,7 +148,6 @@
 			.form-container input[type=password] {
 				width: 100%;
 				padding: 15px;
-				margin: 5px 0 22px 0;
 				border: none;
 				background: #f1f1f1;
 			}
@@ -187,6 +211,24 @@
 				background-color: #E66225;
 				outline: 0;
 			}
+
+			table {
+				font-family: arial, sans-serif;
+				border-collapse: collapse;
+				width: 90%;
+
+			}
+
+			td,
+			th {
+				border: 1px solid #eca87b;
+				text-align: left;
+				padding: 8px;
+			}
+
+			tr:nth-child(even) {
+				background-color: #ebd798;
+			}
 		</style>
 	</head>
 
@@ -200,10 +242,10 @@
 					</a>
 
 					<a href="" style="color: #FFF; text-decoration: none; margin-right:7vw;">
-						Idea submission starts from 22nd October, 2019
+						Idea Submission Starts From 22nd October, 2019
 
 					</a><a href="" style="color: #FFF; text-decoration: none;margin-right:7vw; ">
-						Last date for Idea Submissoin is 5th November, 2019
+						Last Date For Idea Submission is 7th November, 2019
 					</a>
 				</marquee>
 			</li>
@@ -281,6 +323,12 @@
 					<li class="nav-item">
 						<a href="{% url 'past' %}" class="nav-link">PAST EVENTS</a>
 					</li>
+					<li class="nav-item">
+						<a href="{% url 'downloads' %}" class="nav-link">DOWNLOADS</a>
+					</li>
+					<li class="nav-item">
+						<a href="{% url 'faq' %}" class="nav-link">FAQs</a>
+					</li>
 					{% if user.user_type == "S" %}
 					<li class="nav-item">
 						<a href="{% url 'profile' %}" class="nav-link">PROFILE</a>
@@ -319,9 +367,9 @@
 		</nav>
 
 
-		{% for prob in probs %}
+		{% for prob,idea in idea %}
 		<div class="form-popup" id="{{prob.id}}" style="background-color: white; border-radius: 30px;">
-			<hr style="font-size: 20px; font-weight: bold; border-color: #E66225;width:100%">
+
 			<div>
 				<table style="margin-top: 40px;">
 					<div style="width: 50%;float: left;">
@@ -361,6 +409,13 @@
 					</div>
 					<div style="width: 50%;float: left;">
 						<tr>
+							<th>Ideas Submitted So Far
+							<td>{{idea}}</td>
+							</th>
+						</tr>
+					</div>
+					<div style="width: 50%;float: left;">
+						<tr>
 							<th>Problem Description
 							<td>{{prob.desc}}
 							</td>
@@ -369,16 +424,22 @@
 					</div>
 				</table>
 			</div>
-			<hr style="font-size: 20px; font-weight: bold; border-color: #E66225;width:100%;margin-bottom:0;">
-
+			<hr style="font-size: 20px; font-weight: bold; border-color: #E66225;width:100%;">
+			<br>
 			{% if user.user_type == "S" %}
-			<a href="{% url 'idea' prob.id %}">
-				<input type="button" value="Participate"
-					style="background-color: #32A800; padding: 10px; border-radius: 30px; color: white; margin-left: 245px; margin-bottom: 20px;"></a>{% endif %}
-			<button type="button" onclick="closeForm('{{prob.id}}')"
-				style="background-color: red; padding: 10px; border-radius: 30px; color: white;margin-left: 10px;">
-				Close
-			</button>
+			<div style="width:100%;text-align: center;">
+				<a href="{% url 'idea' prob.id %}">
+					<input type="button" value="Participate" class="hovg"></a>
+				<button type="button" onclick="closeForm('{{prob.id}}')" class="hov">
+					Close</button>
+				{% else %}
+				<button type="button" onclick="closeForm('{{prob.id}}')" class="hov" style="display:block;margin:auto;">
+					Close
+				</button>
+				{% endif %}<br>
+				<hr style="font-size: 20px; font-weight: bold; border-color: #E66225;width:100%">
+				<br>
+			</div>
 		</div>
 		{% endfor %}
 
@@ -389,17 +450,19 @@
 		</p>
 
 		<form style="margin-left: 50px;" action="{% url 'prdesc' %}" method="POST">
-			<div style="display:flex;justify-content: center;flex-wrap:wrap;">
+			<div style="display:flex;justify-content: space-around;flex-wrap:wrap;">
 				<select name="category" placeholder="Problem Category"
-					style=" border-radius: 5px; padding: 7px; margin-top: 15px;   background-color: #f2af80;" required>
-					<option value="Hardware" disabled hidden selected>Problem Category</option>
+					style=" border-radius: 5px; padding: 7px; margin-top: 15px;   background-color: #f2af80;">
+					<option value="" hidden selected>Problem Category</option>
 					<option value="Hardware">Hardware</option>
 					<option value="Software">Software</option>
+					<option value="Both">Both</option>
 				</select>
+				<input type="text" name="code" value="" placeholder="Problem Code"
+					style=" border-radius: 5px; padding: 7px; margin-top: 15px;   background-color: #f2af80;">
 				<select name="theme" placeholder="Problem Theme"
-					style=" border-radius: 5px; padding: 7px; margin-top: 15px; background-color: #f2af80;margin-left:20px;"
-					required>
-					<option value="Smart Communication" hidden disabled selected>Problem Theme</option>
+					style=" border-radius: 5px; padding: 7px; margin-top: 15px; background-color: #f2af80;margin-left:20px;">
+					<option value="" hidden selected>Problem Theme</option>
 					<option value="Smart Communication">Smart Communication</option>
 					<option value="Healthcare & Biomedical devices">Healthcare & Biomedical devices</option>
 					<option value="Agriculture & Rural Development">Agriculture & Rural Development</option>
@@ -409,9 +472,16 @@
 					<option value="Waste Management">Waste Management</option>
 					<option value="Clean Water">Clean Water</option>
 					<option value="Renewable Energy">Renewable Energy</option>
+					<option value="Technology">Technology</option>
+					<option value="Infrastructure">Infrastructure</option>
+					<option value="India & the World">India & the World</option>
+					<option value="Education Skiils">Education Skiils</option>
+					<option value="Social Welfare">Social Welfare</option>
+					<option value="Governance">Governance</option>
+					<option value="Economy">Economy</option>
+					<option value="Miscellaneous">Miscellaneous</option>
 				</select>
-				<input type="submit" value="Search"
-					style="margin-left: 20px; border-radius: 5px; padding: 7px; margin-top: 15px; background-color: #32A800; ">
+				<input type="submit" value="Search" style="margin-left: 20px; margin-top: 15px; " class="hovg">
 				{% csrf_token %}
 			</div>
 		</form>
@@ -425,9 +495,7 @@
 					<th>Problem Catagory</th>
 					<th>Problem Theme</th>
 					<th>Problem Title</th>
-					{% if user.user_type == "S" %}
 					<th></th>
-					{% endif %}
 
 				</tr>
 				</tr>
@@ -440,8 +508,7 @@
 					<td>{{prob.theme}}</td>
 					<td>{{prob.title}}</td>
 					<td>
-						<button onclick="openForm('{{prob.id}}')"
-							style="background: #E66225; padding: 10px; color: white; width: 90px; ">View</button></td>
+						<button onclick="openForm('{{prob.id}}')" class="hov">View</button></td>
 				</tr>
 				{% endfor %}
 			</table>
@@ -450,6 +517,11 @@
 		<br>
 
 		<hr style="font-size: 20px; font-weight: bold; border-color: #E66225;width:100%">
+		<br>
+		<div align='center'>
+			<img src="https://www.cutercounter.com/hits.php?id=gcaxok&nd=3&style=80" border="0"
+				alt="free counter"><br>Website Visit Counter
+		</div><br>
 		<div
 			style="display: flex;justify-content: space-evenly;flex-wrap: wrap;text-align: center;background-color: #fff;padding-top:15px;">
 			<div>

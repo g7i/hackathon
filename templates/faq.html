@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+{% load staticfiles %}
+
+<style>
+    .down a {
+        margin: auto;
+        display: block;
+        width: 80%;
+    }
+
+    .down .row {
+        padding-top: 5vh;
+        padding-bottom: 5vh;
+    }
+</style>
+<hr style="font-size: 20px; font-weight: bold; border-color: #E66225;width:100%">
+<br>
+<h1 style="font-weight: bold; font-size: 40px; color: #6BB2DE; text-align: center;">
+    FAQ's
+</h1><br>
+<hr style="font-size: 20px; font-weight: bold; border-color: #E66225;width:100%">
+<div class="container down">
+
+    <div class="row"><br>
+        <div class="col-lg-6 col-sm-12" style="text-align:center;margin-bottom:15px;">
+            <a href="{% static 'downloads/FAQs.pdf' %}" class="hov">Frequently Asked Questions (FAQs)</a>
+        </div>
+
+        <div class="col-lg-6 col-sm-12" style="text-align:center;margin-bottom:15px;">
+            <a href="{% static 'downloads/reg.pdf' %}" class="hovg">Registration & Idea Submission Guidance</a>
+        </div>
+    </div>
+
+</div>
+
+{% endblock content %}
