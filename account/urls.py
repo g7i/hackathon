@@ -8,6 +8,7 @@ urlpatterns = [
     path('signupm',views.signupm,name='signupm'),
     path('signupj',views.signupj,name='signupj'),
     path('signupp',views.signupp,name='signupp'),
+    path('edits',views.edits,name='edits'),
     url(r'^login/$',views.login,name='login'),
     path('logout',views.logout,name='logout'),
     path('aadhar', views.aadhar, name='aadhar'),

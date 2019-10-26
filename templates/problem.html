@@ -8,13 +8,19 @@
     <div class="row">
         <div class="col-lg-6 col-sm-12" style="text-align: center;">
             <input type="text" value="" placeholder="Problem Title" name="title"
-                style="width: 50%; border-radius: 5px; padding: 7px;margin-top: 15px; background-color: #f2af80;">
+                style="width: 50%; border-radius: 5px; padding: 7px;margin-top: 15px; background-color: #f2af80;"
+                required>
             <input type="text" value="" placeholder="Problem Code" name="code"
                 style="width: 50%; border-radius: 5px; padding: 7px;margin-top: 15px;  background-color: #f2af80;"
-                maxlength="20">
+                maxlength="20" required>
             <input type="text" value="" placeholder="Organisation" name="Organisation"
                 style="width: 50%; border-radius: 5px; padding: 7px;margin-top: 15px;  background-color: #f2af80;"
-                maxlength="100">
+                maxlength="100" required>
+            <input type="text" value="" placeholder="Relevant Discipline" name="discipline"
+                style="width: 50%; border-radius: 5px; padding: 7px;margin-top: 15px;  background-color: #f2af80;"
+                maxlength="50" required>
+            <input type="url" value="" placeholder="Video Link (optional)" name="link"
+                style="width: 50%; border-radius: 5px; padding: 7px;margin-top: 15px;  background-color: #f2af80;">
             <select name="complexity" placeholder=""
                 style="width: 50%; border-radius: 5px; padding: 7px; margin-top: 15px;   background-color: #f2af80;"
                 required>
@@ -25,7 +31,7 @@
             </select>
             <input list="themes" name="theme" placeholder="Problem Theme"
                 style="width: 50%; border-radius: 5px; padding: 7px; margin-top: 15px;   background-color: #f2af80;"
-                maxlength="100">
+                required maxlength="100">
             <datalist id="themes">
                 <option value="Smart Communication">
                 <option value="Healthcare & Biomedical devices">
@@ -49,13 +55,18 @@
         <div class="col-lg-6 col-sm-12" style="text-align: center;">
 
             <select name="cat" placeholder=""
-                style="width: 50%; border-radius: 5px; padding: 7px; margin-top: 15px;   background-color: #f2af80;">
+                style="width: 50%; border-radius: 5px; padding: 7px; margin-top: 15px;   background-color: #f2af80;"
+                required>
                 <option value="Software" disabled hidden selected>Problem Category</option>
                 <option value="Software">Software</option>
                 <option value="Hardware">Hardware</option>
                 <option value="Both">Both</option>
             </select>
+
             <textarea type="text" value="" name="desc" placeholder="Problem Description"
+                style="width: 50%; border-radius: 5px; padding: 7px; margin-top: 15px;  background-color: #f2af80; height: 150px;"
+                required></textarea>
+            <textarea type="text" value="" name="outcome" placeholder="Desired Outcome (optional)"
                 style="width: 50%; border-radius: 5px; padding: 7px; margin-top: 15px;  background-color: #f2af80; height: 150px;"></textarea>
 
         </div>

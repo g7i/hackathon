@@ -323,23 +323,31 @@
 					<li class="nav-item">
 						<a href="{% url 'past' %}" class="nav-link">PAST EVENTS</a>
 					</li>
-					<li class="nav-item">
-						<a href="{% url 'downloads' %}" class="nav-link">DOWNLOADS</a>
-					</li>
-					<li class="nav-item">
-						<a href="{% url 'faq' %}" class="nav-link">FAQs</a>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							SUPPORT
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="{% url 'downloads' %}">DOWNLOADS</a>
+							<a class="dropdown-item" href="{% url 'faq' %}">FAQs</a>
+						</div>
 					</li>
 					{% if user.user_type == "S" %}
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							VIEW
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="{% url 'profile' %}">PROFILE</a>
+							<a class="dropdown-item" href="{% url 'subidea' %}">SUBMITTED IDEAS</a>
+						</div>
+					</li>
 					<li class="nav-item">
-						<a href="{% url 'profile' %}" class="nav-link">PROFILE</a>
+						<a href="{% url 'prdesc' %}" class="nav-link">PROBLEMS LIST</a>
 					</li>
 
-					<li class="nav-item">
-						<a href="{% url 'prdesc' %}" class="nav-link">VIEW PROBLEMS</a>
-					</li>
-					<li class="nav-item">
-						<a href="{% url 'subidea' %}" class="nav-link">SUBMITTED IDEAS</a>
-					</li>
 					{% endif %}
 					{% if user.user_type == "P" %}
 
@@ -350,9 +358,7 @@
 						<a href="{% url 'prdesc' %}" class="nav-link">PROBLEMS LIST</a>
 					</li>
 					{% endif %}
-					<li class="nav-item">
-						<a href="https://www.sih.gov.in/" class="nav-link">SIH 2020</a>
-					</li>
+
 				</ul>
 				<span class="navbar-text">
 					{% if user.is_authenticated %}
@@ -367,7 +373,7 @@
 		</nav>
 
 
-		{% for prob,idea in idea %}
+		{% for prob,idea in probs %}
 		<div class="form-popup" id="{{prob.id}}" style="background-color: white; border-radius: 30px;">
 
 			<div>
@@ -409,6 +415,13 @@
 					</div>
 					<div style="width: 50%;float: left;">
 						<tr>
+							<th>Relevant Discipline
+							<td>{{prob.discipline}}</td>
+							</th>
+						</tr>
+					</div>
+					<div style="width: 50%;float: left;">
+						<tr>
 							<th>Ideas Submitted So Far
 							<td>{{idea}}</td>
 							</th>
@@ -416,8 +429,23 @@
 					</div>
 					<div style="width: 50%;float: left;">
 						<tr>
+							<th>Video Reference Link
+							<td><a href="{{prob.link}}">{{prob.link}}</a></td>
+							</th>
+						</tr>
+					</div>
+					<div style="width: 50%;float: left;">
+						<tr>
 							<th>Problem Description
 							<td>{{prob.desc}}
+							</td>
+							</th>
+						</tr>
+					</div>
+					<div style="width: 50%;float: left;">
+						<tr>
+							<th>Desired Outcome
+							<td>{{prob.outcome}}
 							</td>
 							</th>
 						</tr>
@@ -492,20 +520,21 @@
 				<tr>
 					<th>Organisation</th>
 					<th>Problem Code</th>
-					<th>Problem Catagory</th>
+					<th>Problem Category</th>
 					<th>Problem Theme</th>
+					<th>Ideas Submitted</th>
 					<th>Problem Title</th>
 					<th></th>
 
 				</tr>
 				</tr>
-				{% for prob in probs %}
-
+				{% for prob,idea in probs %}
 				<tr>
 					<td>{{prob.org_type}}</td>
 					<td>{{prob.code}}</td>
 					<td>{{prob.category}}</td>
 					<td>{{prob.theme}}</td>
+					<td>{{idea}}</td>
 					<td>{{prob.title}}</td>
 					<td>
 						<button onclick="openForm('{{prob.id}}')" class="hov">View</button></td>

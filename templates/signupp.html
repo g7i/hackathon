@@ -3,21 +3,18 @@
 
 <hr style="font-size: 20px; font-weight: bold; border-color: #E66225;width:100%">
 
-<form>
-    <h1 style="font-weight: bold; font-size: 40px; color: #6BB2DE; text-align: center;">
-        PROBLEM STATEMENT CREATOR
-    </h1><br>
-    <div class="row">
-        <div class="col-6" style="text-align:center;">
-            <input type="Number" value="" name="Adhar Card Number" placeholder="Adhar Card Number"
-                style="width: 50%; border-radius: 5px;padding: 7px; background-color: #f2af80;margin-bottom:15px;"
-                required disabled>
-        </div>
-        <div class="col-6" style="text-align:center;">
-            <input type="submit" value="Verify" style="width: 50%;" class="hovg" disabled>
-        </div>
+<h1 style="font-weight: bold; font-size: 40px; color: #6BB2DE; text-align: center;">
+    PROBLEM STATEMENT CREATOR
+</h1><br>
+<div class="row">
+    <div class="col-6" style="text-align:center;">
+        <input type="text" value="" name="Problem Creator's Key" placeholder="Problem Creator's Key" id="key"
+            style="width: 50%; border-radius: 5px;padding: 7px; background-color: #f2af80;margin-bottom:15px;" required>
     </div>
-</form>
+    <div class="col-6" style="text-align:center;">
+        <input type="submit" value="Verify" style="width: 50%;" class="hovg" id="ver">
+    </div>
+</div>
 <hr style="font-size: 20px; font-weight: bold; border-color: #E66225;width:100%">
 
 <h6 style="color:red;font-size:2em;text-align: center;">{{error}}</h6>
@@ -67,7 +64,7 @@
         <div class="col-6" style="text-align:center;">
             <input type="number" value="" name="Contact Number" placeholder="Contact Number"
                 style="width: 50%; border-radius: 5px; padding: 7px; margin-top: 15px;  background-color: #f2af80;"
-                required>
+                maxlength="10" pattern="[5-9]{1}[0-9]{9}" required>
         </div>
         <div class="col-6" style="text-align:center;">
             <input type="text" value="" name="Address" placeholder="Address"
@@ -80,8 +77,12 @@
     <hr style="font-size: 20px; font-weight: bold; border-color: #E66225;width:100%">
 
     <div style="width: 100%;text-align: center;">
-        <input type="submit" value="Submit" style="width: 50%; margin-top: 15px;" class="hovg">
+        <input tabindex="0" type="submit" value="Submit" style="width: 50%; margin-top: 15px;" class="hovg btn" id="sub"
+            data-toggle="popover" data-trigger="focus" title="Verification Required!!"
+            data-content="Verification is required with a Problem Statement Creator's Key to SignUp.">
     </div>
+
 </form>
 <br>
+
 {% endblock content %}

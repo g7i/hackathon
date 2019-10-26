@@ -16,9 +16,13 @@ class Problem(models.Model):
     code = models.CharField(max_length=20,null=True, blank=True)
     category = models.CharField(max_length=30,choices=CAT,null=True,blank=True)
     desc = models.TextField(null=True,blank=True)
+    outcome = models.TextField(null=True,blank=True)
     theme = models.CharField(max_length=100,null=True,blank=True)
     complexity = models.CharField(max_length=30,choices=COM,null=True,blank=True)
     org_type = models.CharField(max_length=100, null=True, blank=True)
+    discipline = models.CharField(max_length=50, null=True, blank=True)
+    org_type = models.CharField(max_length=100, null=True, blank=True)
+    link = models.URLField(blank=True)
     
     def __str__(self):
         return str(self.code)

@@ -17,8 +17,19 @@ def problem(request):
         com = request.POST["complexity"]
         theme = request.POST["theme"]
         desc = request.POST["desc"]
+        discipline = request.POST["discipline"]
+        link = request.POST["link"]
+        outcome = request.POST["outcome"]
 
         prob = Problem.objects.create(title=title,code=code,category=cat,desc=desc,theme=theme,complexity=com,org_type=org)
+
+        if discipline:
+            prob.discipline = discipline
+        if link:
+            prob.link = link
+        if outcome:
+            prob.outcome = outcome
+        prob.save()
 
         return render(request,'is.html',{'error':'Your problem has been Successfully added.'})
 
@@ -75,13 +86,12 @@ def prdesc(request):
             probs = probs.filter(theme=theme)
     for prob in probs:
         idea.append(len(ideas.filter(problem=prob)))
-    idea = zip(probs, idea)
-    return render(request,'prdesc.html',{'probs':probs,'idea':idea})
+    probs = list(zip(probs, idea))
+    return render(request,'prdesc.html',{'probs':probs})
 
 def profile(request):
     stu=Student.objects.get(user=request.user)
-    ideas=Idea.objects.all().filter(user=stu)
-    return render(request, "profile.html", {"stu": stu, "ideas": ideas})
+    return render(request, "profile.html", {"stu": stu})
     
 def subidea(request):
     stu=Student.objects.get(user=request.user)

@@ -9,17 +9,18 @@
 		<div class="col-lg-6 col-sm-12" style="text-align: center;">
 			<input type="text" value="" placeholder="Idea Title (Max length - 50)" name="title"
 				style="width: 50%; border-radius: 5px; padding: 7px;margin-top: 15px; background-color: #f2af80;"
-				maxlength="50">
+				maxlength="50" required>
 			<input type="hidden" value={{prob.id}} placeholder="Idea Title" name="pr"
 				style="width: 50%; border-radius: 5px; padding: 7px;margin-top: 15px; background-color: #f2af80;">
 
 			<input type="file" name="doc"
-				style="width: 50%; border-radius: 5px; padding: 7px; margin-top: 15px;  background-color: #f2af80;">
+				style="width: 50%; border-radius: 5px; padding: 7px; margin-top: 15px;  background-color: #f2af80;"
+				required>
 		</div>
 		<div class="col-lg-6 col-sm-12" style="text-align: center;">
 			<textarea type="text" value="" name="desc" placeholder="Problem Description (Max length - 250)"
 				style="width: 50%; border-radius: 5px; padding: 7px; background-color: #f2af80;margin-top:15px;"
-				maxlength="250"></textarea>
+				maxlength="250" required></textarea>
 		</div>
 	</div>
 	<br>

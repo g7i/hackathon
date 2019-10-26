@@ -21,7 +21,10 @@
 					if (response['Status'] == 'Y') {
 						$('#ad').val(aadhar)
 						$('#mail').val(response['email'])
+						$('#verify').val('Verified')
 					}
+					else
+						$('#verify').val('Failed! Verify Again');
 					alert(response['Message']);
 				},
 				error: function (rs, e) {
@@ -39,12 +42,12 @@
 		STUDENT
 	</h1><br>
 	<div class="row">
-		<div class="col-6" style="text-align: center;">
+		<div class="col-lg-6 col-sm-12" style="text-align: center;">
 			<input type="text" value="" name="Adhar Card Number" placeholder="Adhar Card Number"
 				style="width: 50%; border-radius: 5px;padding: 7px; background-color: #f2af80;margin-bottom: 15px;"
 				id="aadhar" maxlength="12" pattern="[0-9]{12}" required>
 		</div>
-		<div class="col-6" style="text-align: center;">
+		<div class="col-lg-6 col-sm-12" style="text-align: center;">
 			<input type="submit" value="Verify" style="width: 50%; " class="hovg" id="verify">
 		</div>
 	</div><br>
@@ -60,49 +63,49 @@
 <form action="{% url 'signups' %}" method="post" enctype="multipart/form-data">
 
 	<div class="row">
-		<div class="col-6" style="text-align: center;">
+		<div class="col-lg-6 col-sm-12" style="text-align: center;">
 			<input type="text" value="" placeholder="Username" name="Username"
 				style="width: 50%; border-radius: 5px; padding: 7px;margin-top: 15px;  background-color: #f2af80;"
 				required>
 		</div>
-		<div class="col-6" style="text-align: center;">
+		<div class="col-lg-6 col-sm-12" style="text-align: center;">
 			<input type="password" value="" name="Password" placeholder="Password"
 				style="width: 50%; border-radius: 5px; padding: 7px; margin-top: 15px;  background-color: #f2af80;"
 				required>
 		</div>
-		<div class="col-6" style="text-align: center;">
+		<div class="col-lg-6 col-sm-12" style="text-align: center;">
 			<input type="hidden" name="aadhar" id="ad" value="">
 			<input type="password" value="" name="Confirm Password" placeholder="Confirm Password"
 				style="width: 50%; border-radius: 5px; padding: 7px; margin-top: 15px;  background-color: #f2af80;"
 				required>
 		</div>
-		<div class="col-6" style="text-align: center;">
+		<div class="col-lg-6 col-sm-12" style="text-align: center;">
 			<input type="email" id="mail" placeholder="E-mail" name="E-mail"
 				style="width: 50%; border-radius: 5px; padding: 7px; margin-top: 15px;  background-color: #f2af80;"
 				readonly required>
 		</div>
-		<div class="col-6" style="text-align: center;">
+		<div class="col-lg-6 col-sm-12" style="text-align: center;">
 			<input type="text" value="" placeholder="First Name" name="First Name"
 				style="width: 50%; border-radius: 5px; padding: 7px; margin-top: 15px;  background-color: #f2af80;"
 				required>
 		</div>
-		<div class="col-6" style="text-align: center;">
+		<div class="col-lg-6 col-sm-12" style="text-align: center;">
 			<input type="text" value="" placeholder="Last Name" name="Last Name"
 				style="width: 50%; border-radius: 5px; padding: 7px; margin-top: 15px;  background-color: #f2af80;"
 				required>
 		</div>
-		<div class="col-6" style="text-align: center;">
+		<div class="col-lg-6 col-sm-12" style="text-align: center;">
 
 			<input type="text" value="" name="Father's Name" placeholder="Father's Name"
 				style="width: 50%; border-radius: 5px; padding: 7px; margin-top: 15px;  background-color: #f2af80;"
 				required>
 		</div>
-		<div class="col-6" style="text-align: center;">
+		<div class="col-lg-6 col-sm-12" style="text-align: center;">
 			<input type="Number" value="" name="Collage ID" placeholder="Collage ID"
 				style="width: 50%; border-radius: 5px; padding: 7px; margin-top: 15px;   background-color: #f2af80;"
 				required>
 		</div>
-		<div class="col-6" style="text-align: center;">
+		<div class="col-lg-6 col-sm-12" style="text-align: center;">
 			<select name="Semester" placeholder="Semester"
 				style="width: 50%; border-radius: 5px; padding: 7px; margin-top: 15px;   background-color: #f2af80;"
 				required>
@@ -113,11 +116,11 @@
 				<option value="VII">VII</option>
 			</select>
 		</div>
-		<div class="col-6" style="text-align: center;">
+		<div class="col-lg-6 col-sm-12" style="text-align: center;">
 			<select name="Branch" placeholder="Branch"
 				style="width: 50%; border-radius: 5px; padding: 7px; margin-top: 15px;   background-color: #f2af80;"
 				required>
-				<option value="CSE" disabled hidden selected>Department</option>
+				<option value="CSE" disabled hidden selected>Branch</option>
 				<option value="CSE">CSE</option>
 				<option value="ECE">ECE</option>
 				<option value="EE">EE</option>
@@ -125,12 +128,12 @@
 				<option value="CE">CE</option>
 			</select>
 		</div>
-		<div class="col-6" style="text-align: center;">
+		<div class="col-lg-6 col-sm-12" style="text-align: center;">
 			<input type="text" name="Contact Number" placeholder="Contact Number"
 				style="width: 50%; border-radius: 5px; padding: 7px; margin-top: 15px;  background-color: #f2af80;"
 				maxlength="10" pattern="[5-9]{1}[0-9]{9}" required>
 		</div>
-		<div class="col-6" style="text-align: center;">
+		<div class="col-lg-6 col-sm-12" style="text-align: center;">
 			<input type="file" name="myFile"
 				style="width: 50%; border-radius: 5px; padding: 7px; margin-top: 15px;   background-color: #f2af80;"
 				required>

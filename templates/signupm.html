@@ -3,16 +3,14 @@
 <hr style="font-size: 20px; font-weight: bold; border-color: #E66225;width:100%;margin-bottom:0;">
 <br>
 
-<form>
-	<h1 style="font-weight: bold; font-size: 40px; color: #6BB2DE; text-align: center;">
-		DESIGN MENTOR
-	</h1><br>
-	<div style="display: flex;justify-content: space-evenly;">
-		<input type="Number" value="" name="Employee ID" placeholder="Employee ID"
-			style=" border-radius: 5px;padding: 7px; background-color: #f2af80;" required disabled>
-		<input type="submit" value="Verify" style=" width:150px" class="hovg" disabled>
-	</div>
-</form>
+<h1 style="font-weight: bold; font-size: 40px; color: #6BB2DE; text-align: center;">
+	DESIGN MENTOR
+</h1><br>
+<div style="display: flex;justify-content: space-evenly;">
+	<input type="text" value="" name="Mentor's Key" placeholder="Mentor's Key"
+		style="border-radius: 5px;padding: 7px; background-color: #f2af80;" id="key" required>
+	<input type="submit" value="Verify" class="hovg" style="width:auto;min-width:170px;" id="ver">
+</div>
 
 <hr style="font-size: 20px; font-weight: bold; border-color: #E66225;width:100%;margin-bottom:0;">
 <h6 style="color:red;font-size:2em;text-align: center;">{{error}}</h6>
@@ -105,8 +103,9 @@
 
 	<hr style="font-size: 20px; font-weight: bold; border-color: #E66225;width:100%;margin-bottom:0;">
 	<br>
-	<input type="submit" value="Submit" style="width: 25%;margin:auto;display:block;margin-top: 15px; "
-		class="hovg"><br>
+	<input type="submit" value="Submit" style="width: 25%;margin:auto;display:block;  margin-top: 15px; " class="hovg"
+		id="sub" data-toggle="popover" data-trigger="focus" title="Verification Required!!"
+		data-content="Verification is required with a Mentor's Key to SignUp." tabindex="0"><br>
 </form>
 
 {% endblock %}

@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from .models import Student,Mentor,Judge,ProblemCreator,User
 from django.contrib import auth
 from django.http import JsonResponse
@@ -201,3 +201,31 @@ def aadhar(request):
             if aadhar == raw['Aadhar Number']:
                 response_data = {'Message':'Your Aadhar No. has been verified. Fill the Form to SignUp.','email':raw['Username'],'Status':'Y'}
         return JsonResponse(response_data)
+
+
+
+def edits(request):
+    if request.method == 'POST':
+        fathername = request.POST["Father's Name"]
+        firstname = request.POST["First Name"]
+        lastname = request.POST["Last Name"]
+        contact = request.POST["Contact Number"]
+        branch = request.POST["Branch"]
+        sem = request.POST["Semester"]
+        clgid = request.POST["Collage ID"]
+
+        stu = get_object_or_404(Student, user=request.user)
+        stu.father_name = fathername
+        stu.user.first_name = firstname
+        stu.user.last_name = lastname
+        stu.contact_number = contact
+        stu.branch = branch
+        stu.semester = sem
+        stu.college_id = clgid
+        stu.user.save()
+        stu.save()
+
+        return redirect("profile")
+
+    stu=Student.objects.get(user=request.user)
+    return render(request, "edits.html", {"stu": stu})

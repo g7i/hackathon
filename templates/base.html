@@ -44,7 +44,15 @@
 				width: 10vw;
 			}
 
+			.dropdown:hover .dropdown-menu {
+				display: block;
+			}
 
+			.dropdown-item:hover {
+				background-color: #E66225;
+				color: #fff;
+
+			}
 
 			.carousel-item img {
 				width: 100%;
@@ -230,6 +238,29 @@
 				outline: 0;
 			}
 		</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+		</script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+			crossorigin="anonymous"></script>
+
+		<script>
+			$(document).on('click', '#ver', function (e) {
+				var key = $('#key').val();
+				if (key == 'MIH2020')
+					$('#ver').val('Verified')
+				else
+					$('#ver').val('Failed! Verify Again')
+			});
+			$(document).on('click', '#sub', function (e) {
+				if ($('#ver').val() != 'Verified')
+					e.preventDefault();
+			});
+			$(function () {
+				$('[data-toggle="popover"]').popover()
+			})
+
+		</script>
 	</head>
 
 	<body>
@@ -323,23 +354,32 @@
 					<li class="nav-item">
 						<a href="{% url 'past' %}" class="nav-link">PAST EVENTS</a>
 					</li>
-					<li class="nav-item">
-						<a href="{% url 'downloads' %}" class="nav-link">DOWNLOADS</a>
-					</li>
-					<li class="nav-item">
-						<a href="{% url 'faq' %}" class="nav-link">FAQs</a>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							SUPPORT
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="{% url 'downloads' %}">DOWNLOADS</a>
+							<a class="dropdown-item" href="{% url 'faq' %}">FAQs</a>
+						</div>
 					</li>
 					{% if user.user_type == "S" %}
-					<li class="nav-item">
-						<a href="{% url 'profile' %}" class="nav-link">PROFILE</a>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							VIEW
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="{% url 'profile' %}">PROFILE</a>
+							<a class="dropdown-item" href="{% url 'subidea' %}">SUBMITTED IDEAS</a>
+						</div>
 					</li>
 
 					<li class="nav-item">
-						<a href="{% url 'prdesc' %}" class="nav-link">VIEW PROBLEMS</a>
+						<a href="{% url 'prdesc' %}" class="nav-link">PROBLEMS LIST</a>
 					</li>
-					<li class="nav-item">
-						<a href="{% url 'subidea' %}" class="nav-link">SUBMITTED IDEAS</a>
-					</li>
+
 					{% endif %}
 					{% if user.user_type == "P" %}
 
@@ -350,9 +390,7 @@
 						<a href="{% url 'prdesc' %}" class="nav-link">PROBLEMS LIST</a>
 					</li>
 					{% endif %}
-					<li class="nav-item">
-						<a href="https://www.sih.gov.in/" class="nav-link">SIH 2020</a>
-					</li>
+
 				</ul>
 				<span class="navbar-text">
 					{% if user.is_authenticated %}
@@ -524,16 +562,13 @@
 				document.getElementById("myForm").style.display = "none";
 			}
 		</script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
-		</script>
+
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 			crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-			crossorigin="anonymous"></script>
 
 	</body>
+
 
 
 </html>

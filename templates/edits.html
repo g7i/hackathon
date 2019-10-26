@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+{% block content %}
+{% load staticfiles %}
+<style>
+    .pro input {
+        color: #000 !important;
+    }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+</script>
+
+
+<hr style="font-size: 20px; font-weight: bold; border-color: #E66225;width:100%">
+
+<h1 style="font-weight: bold; font-size: 40px; color: #6BB2DE; text-align: center;">
+    EDIT PROFILE
+</h1><br>
+
+
+<hr style="font-size: 20px; font-weight: bold; border-color: #E66225;width:100%">
+
+<h6 style="color:red;font-size:2em;text-align: center;">{{error}}</h6>
+
+<form action="{% url 'edits' %}" method="post" enctype="multipart/form-data">
+
+    <div class="row pro">
+        <div class="col-lg-6 col-sm-12" style="text-align: center;">
+
+            Username<br>
+            <input type="text" value="{{user.username}}" placeholder="Username" name="Username"
+                style="width: 50%; border-radius: 5px; padding: 7px;background-color: #f2af80;" disabled>
+            <br><br></div>
+        <div class="col-lg-6 col-sm-12" style="text-align: center;">
+
+            E-mail <br>
+            <input type="email" value="{{user.email}}" placeholder="E-mail" name="E-mail"
+                style="width: 50%; border-radius: 5px; padding: 7px; background-color: #f2af80;" disabled>
+            <br> <br></div>
+        <div class="col-lg-6 col-sm-12" style="text-align: center;">
+
+            First Name<br>
+            <input type="text" value="{{user.first_name}}" placeholder="First Name" name="First Name"
+                style="width: 50%; border-radius: 5px; padding: 7px;  background-color: #f2af80;" required>
+            <br><br>
+        </div>
+        <div class="col-lg-6 col-sm-12" style="text-align: center;">
+
+            Last Name<br>
+            <input type="text" value="{{user.last_name}}" placeholder="Last Name" name="Last Name"
+                style="width: 50%; border-radius: 5px; padding: 7px;background-color: #f2af80;" required>
+            <br><br>
+        </div>
+        <div class="col-lg-6 col-sm-12" style="text-align: center;">
+
+            Father's Name<br>
+            <input type="text" value="{{stu.father_name}}" name="Father's Name" placeholder="Father's Name"
+                style="width: 50%; border-radius: 5px; padding: 7px;background-color: #f2af80;" required>
+            <br><br>
+        </div>
+        <div class="col-lg-6 col-sm-12" style="text-align: center;">
+
+            Aadhar Number<br>
+            <input type="text" value="{{stu.aadhar}}" name="Father's Name" placeholder="Father's Name"
+                style="width: 50%; border-radius: 5px; padding: 7px; background-color: #f2af80;" disabled>
+        </div>
+        <div class="col-lg-6 col-sm-12" style="text-align: center;">
+
+            Collage ID<br>
+            <input type="number" value="{{stu.college_id}}" name="Collage ID" placeholder="Collage ID"
+                style="width: 50%; border-radius: 5px; padding: 7px;background-color: #f2af80;" required>
+            <br><br>
+        </div>
+        <div class="col-lg-6 col-sm-12" style="text-align: center;">
+            Semester<br>
+            <select value="{{stu.semester}}" name="Semester" placeholder="Semester"
+                style="width: 50%; border-radius: 5px; padding: 7px;background-color: #f2af80;" required>
+                <option value="{{stu.semester}}" hidden selected>{{stu.semester}}</option>
+                <option value="I">I</option>
+                <option value="III">III</option>
+                <option value="V">V</option>
+                <option value="VII">VII</option>
+            </select>
+            <br><br>
+        </div>
+        <div class="col-lg-6 col-sm-12" style="text-align: center;">
+            Branch<br>
+            <select name="Branch" value="{{stu.branch}}" placeholder="Branch"
+                style="width: 50%; border-radius: 5px; padding: 7px; background-color: #f2af80;" required>
+                <option value="{{stu.branch}}" hidden selected>{{stu.branch}}</option>
+                <option value="CSE">CSE</option>
+                <option value="ECE">ECE</option>
+                <option value="EE">EE</option>
+                <option value="ME">ME</option>
+                <option value="CE">CE</option>
+            </select>
+            <br><br>
+        </div>
+        <div class="col-lg-6 col-sm-12" style="text-align: center;">
+            Contact Number<br>
+            <input type="Number" value="{{stu.contact_number}}" name="Contact Number" placeholder="Contact Number"
+                style="width: 50%; border-radius: 5px; padding: 7px;background-color: #f2af80;" maxlength="10"
+                pattern="[5-9]{1}[0-9]{9}" required>
+            <br><br>
+        </div>
+        <div class="col-lg-6 col-sm-12" style="text-align: center;">
+            Consent Letter<br>
+            <a href="{{stu.letter.url}}">
+                <input type="button" name="myFile"
+                    style="width: 50%; border-radius: 5px; padding: 7px;background-color: #f2af80;"
+                    value="Click to download file."></a>
+        </div>
+    </div>
+    {% csrf_token %}
+
+    <hr style="font-size: 20px; font-weight: bold; border-color: #E66225;width:100%">
+
+    <div style="width: 100%;text-align:center;">
+
+        <input type="submit" value="Save" style="width: 50%; margin-top: 15px; " class="hovg">
+
+    </div><br>
+</form>
+
+{% endblock %}

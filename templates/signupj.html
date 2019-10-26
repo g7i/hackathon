@@ -3,16 +3,14 @@
 <hr style="font-size: 20px; font-weight: bold; border-color: #E66225;width:100%;margin-bottom:0;">
 <br>
 
-<form>
-    <h1 style="font-weight: bold; font-size: 40px; color: #6BB2DE; text-align: center;">
-        EVALUATER/JUDGE
-    </h1><br>
-    <div style="display: flex;justify-content: space-evenly;">
-        <input type="Number" value="" name="Employee ID" placeholder="Employee ID"
-            style="border-radius: 5px;padding: 7px; background-color: #f2af80;" required disabled>
-        <input type="submit" value="Verify" class="hovg" style="width:150px" disabled>
-    </div>
-</form>
+<h1 style="font-weight: bold; font-size: 40px; color: #6BB2DE; text-align: center;">
+    EVALUATER/JUDGE
+</h1><br>
+<div style="display: flex;justify-content: space-evenly;">
+    <input type="text" value="" name="Evaluator's Key" placeholder="Evaluator's Key"
+        style="border-radius: 5px;padding: 7px; background-color: #f2af80;" id="key" required>
+    <input type="submit" value="Verify" class="hovg" style="width:auto;min-width:170px;" id="ver">
+</div>
 
 <hr style="font-size: 20px; font-weight: bold; border-color: #E66225;width:100%;margin-bottom:0;">
 <h6 style="color:red;font-size:2em;text-align: center;">{{error}}</h6>
@@ -51,9 +49,9 @@
                 required>
         </div>
         <div class="col-lg-6 col-sm-12" style="text-align: center;">
-            <input type="number" value="" placeholder="Adhar Card Number" name="Adhar Card Number"
+            <input type="number" value="" placeholder="Aadhar Card No.(optional)" name="Adhar Card Number"
                 style="width: 50%; border-radius: 5px; padding: 7px; margin-top: 15px; background-color: #f2af80;"
-                required>
+                maxlength="12" pattern="[0-9]{12}">
         </div>
         <div class="col-lg-6 col-sm-12" style="text-align: center;">
             <input type="text" value="" placeholder="Teaching Experience" name="Teaching Experience"
@@ -86,9 +84,9 @@
             </select>
         </div>
         <div class="col-lg-6 col-sm-12" style="text-align: center;">
-            <input type="Number" value="" name="Contact Number" placeholder="Contact Number"
+            <input type="number" value="" name="Contact Number" placeholder="Contact Number"
                 style="width: 50%; border-radius: 5px; padding: 7px; margin-top: 15px;  ;background-color: #f2af80;"
-                required>
+                maxlength="10" pattern="[5-9]{1}[0-9]{9}" required>
         </div>
         <div class="col-lg-6 col-sm-12" style="text-align: center;">
             <input type="text" value="" placeholder="Industrial Experience" name="Industrial Experience"
@@ -105,8 +103,9 @@
 
     <hr style="font-size: 20px; font-weight: bold; border-color: #E66225;width:100%;margin-bottom:0;">
     <br>
-    <input type="submit" value="Submit" style="width: 25%;margin:auto;display:block;  margin-top: 15px; "
-        class="hovg"><br>
+    <input type="submit" value="Submit" style="width: 25%;margin:auto;display:block;  margin-top: 15px; " class="hovg"
+        id="sub" data-toggle="popover" data-trigger="focus" title="Verification Required!!"
+        data-content="Verification is required with a Evaluator's Key to SignUp." tabindex="0"><br>
 </form>
 
 {% endblock %}
