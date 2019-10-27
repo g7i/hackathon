@@ -258,8 +258,22 @@
 			});
 			$(function () {
 				$('[data-toggle="popover"]').popover()
-			})
-
+			});
+			function checkFile() {
+				var fileElement = document.getElementById("uploadFile");
+				var fileExtension = "";
+				if (fileElement.value.lastIndexOf(".") > 0) {
+					fileExtension = fileElement.value.substring(fileElement.value.lastIndexOf(".") + 1, fileElement.value.length);
+				}
+				fileExtension = fileExtension.toLowerCase()
+				if (fileExtension == "docx" || fileExtension == "doc" || fileExtension == "pdf") {
+					return true;
+				}
+				else {
+					alert("You must select a doc, docx or pdf file for upload");
+					return false;
+				}
+			}
 		</script>
 	</head>
 

@@ -60,7 +60,7 @@
 
 <h6 style="color:red;font-size:2em;text-align: center;">{{error}}</h6>
 
-<form action="{% url 'signups' %}" method="post" enctype="multipart/form-data">
+<form action="{% url 'signups' %}" method="post" enctype="multipart/form-data" onsubmit="return checkFile();">
 
 	<div class="row">
 		<div class="col-lg-6 col-sm-12" style="text-align: center;">
@@ -136,7 +136,7 @@
 		<div class="col-lg-6 col-sm-12" style="text-align: center;">
 			<input type="file" name="myFile"
 				style="width: 50%; border-radius: 5px; padding: 7px; margin-top: 15px;   background-color: #f2af80;"
-				required>
+				required id="uploadFile">
 		</div>
 	</div>
 	{% csrf_token %}
@@ -145,8 +145,5 @@
 
 	<div style="width: 100%;text-align:center;">
 
-		<input type="submit" value="Submit" style="width: 50%; margin-top: 15px; " class="hovg">
-	</div>
-</form>
-
-{% endblock %}
+		<input type="submit" value="Submit" style="width: 50%; margin-top: 15px;" class="hovg"> </div>
+</form> {% endblock %}
