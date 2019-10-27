@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import Problem,Idea
-from account.models import Student,ProblemCreator,User
+from account.models import Student, ProblemCreator, User
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def home(request):
     if request.method == 'POST':
@@ -86,7 +87,19 @@ def prdesc(request):
             probs = probs.filter(theme=theme)
     for prob in probs:
         idea.append(len(ideas.filter(problem=prob)))
-    probs = list(zip(probs, idea))
+    zprobs = list(zip(probs, idea))
+
+    page = request.GET.get('page', 1)
+
+    paginator = Paginator(zprobs, 15)
+    try:
+        probs = paginator.page(page)
+    except PageNotAnInteger:
+        probs = paginator.page(1)
+    except EmptyPage:
+        probs = paginator.page(paginator.num_pages)
+
+
     return render(request,'prdesc.html',{'probs':probs})
 
 def profile(request):
