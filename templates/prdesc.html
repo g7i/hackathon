@@ -516,27 +516,28 @@
 				</select>
 				<input type="text" name="code" value="" placeholder="Problem Code"
 					style=" border-radius: 5px; padding: 7px; margin-top: 15px;   background-color: #f2af80;">
-				<select name="theme" placeholder="Problem Theme"
-					style=" border-radius: 5px; padding: 7px; margin-top: 15px; background-color: #f2af80;margin-left:20px;">
-					<option value="" hidden selected>Problem Theme</option>
-					<option value="Smart Communication">Smart Communication</option>
-					<option value="Healthcare & Biomedical devices">Healthcare & Biomedical devices</option>
-					<option value="Agriculture & Rural Development">Agriculture & Rural Development</option>
-					<option value="Smart Vehicles">Smart Vehicles</option>
-					<option value="Food Processing">Food Processing</option>
-					<option value="Robotics & Drones">Robotics & Drones</option>
-					<option value="Waste Management">Waste Management</option>
-					<option value="Clean Water">Clean Water</option>
-					<option value="Renewable Energy">Renewable Energy</option>
-					<option value="Technology">Technology</option>
-					<option value="Infrastructure">Infrastructure</option>
-					<option value="India & the World">India & the World</option>
-					<option value="Education Skiils">Education Skiils</option>
-					<option value="Social Welfare">Social Welfare</option>
-					<option value="Governance">Governance</option>
-					<option value="Economy">Economy</option>
-					<option value="Miscellaneous">Miscellaneous</option>
-				</select>
+				<input list="themes" name="theme" placeholder="Problem Theme"
+					style="border-radius: 5px; margin-top: 15px; padding: 7px; background-color: #f2af80;" required
+					maxlength="100">
+				<datalist id="themes">
+					<option value="Smart Communication">
+					<option value="Healthcare & Biomedical devices">
+					<option value="Agriculture & Rural Development">
+					<option value="Smart Vehicles">
+					<option value="Food Processing">
+					<option value="Robotics & Drones">
+					<option value="Waste Management">
+					<option value="Clean Water">
+					<option value="Renewable Energy">
+					<option value="Technology">
+					<option value="Infrastructure">
+					<option value="India & the World">
+					<option value="Education Skiils">
+					<option value="Social Welfare">
+					<option value="Governance">
+					<option value="Economy">
+					<option value="Miscellaneous">
+				</datalist>
 				<input type="submit" value="Search" style="margin-left: 20px; margin-top: 15px; " class="hovg">
 				{% csrf_token %}
 			</div>
