@@ -89,16 +89,25 @@ def prdesc(request):
         idea.append(len(ideas.filter(problem=prob)))
     zprobs = list(zip(probs, idea))
 
+    if request.method == 'POST':
+        val = ({
+            'category': category,
+            'code': code,
+            'theme': theme,
+            'probs': zprobs,
+            'post':True
+        })
+        return render(request,'prdesc.html',context=val)
+
     page = request.GET.get('page', 1)
 
-    paginator = Paginator(zprobs, 15)
+    paginator = Paginator(zprobs, 2)
     try:
         probs = paginator.page(page)
     except PageNotAnInteger:
         probs = paginator.page(1)
     except EmptyPage:
         probs = paginator.page(paginator.num_pages)
-
 
     return render(request,'prdesc.html',{'probs':probs})
 

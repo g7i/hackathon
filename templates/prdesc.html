@@ -509,16 +509,20 @@
 			<div style="display:flex;justify-content: space-around;flex-wrap:wrap;">
 				<select name="category" placeholder="Problem Category"
 					style=" border-radius: 5px; padding: 7px; margin-top: 15px;   background-color: #f2af80;">
+					{% if category %}
+					<option value="{{category}}" hidden selected>{{category}}</option>
+					{% else %}
 					<option value="" hidden selected>Problem Category</option>
+					{% endif %}
 					<option value="Hardware">Hardware</option>
 					<option value="Software">Software</option>
 					<option value="Both">Both</option>
 				</select>
-				<input type="text" name="code" value="" placeholder="Problem Code"
+				<input type="text" name="code" value="{{code}}" placeholder="Problem Code"
 					style=" border-radius: 5px; padding: 7px; margin-top: 15px;   background-color: #f2af80;">
 				<input list="themes" name="theme" placeholder="Problem Theme"
-					style="border-radius: 5px; margin-top: 15px; padding: 7px; background-color: #f2af80;" required
-					maxlength="100">
+					style="border-radius: 5px; margin-top: 15px; padding: 7px; background-color: #f2af80;"
+					maxlength="100" value="{{theme}}">
 				<datalist id="themes">
 					<option value="Smart Communication">
 					<option value="Healthcare & Biomedical devices">
@@ -542,6 +546,9 @@
 				{% csrf_token %}
 			</div>
 		</form>
+		{% if post %}<br>
+		<center><a href="{% url 'prdesc' %}" style="text-align: center;">Clear Search Filters</a></center>
+		{% endif %}
 		<br>
 		<div class="container">
 
