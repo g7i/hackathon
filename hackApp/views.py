@@ -70,7 +70,7 @@ def past(request):
 
 
 def prdesc(request):
-    probs = Problem.objects.all()
+    probs = Problem.objects.all().order_by('code')
     ideas = Idea.objects.all()
     idea = []
     if request.method == 'POST':
