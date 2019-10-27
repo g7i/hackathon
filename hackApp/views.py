@@ -101,7 +101,7 @@ def prdesc(request):
 
     page = request.GET.get('page', 1)
 
-    paginator = Paginator(zprobs, 2)
+    paginator = Paginator(zprobs, 15)
     try:
         probs = paginator.page(page)
     except PageNotAnInteger:
